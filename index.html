@@ -7,16 +7,24 @@
       content="width=device-width, initial-scale=1, viewport-fit=cover"
     />
     <title>pinkyussp shop</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
     <style>
       :root {
         color-scheme: light;
-        --ink: #1c1c1c;
-        --paper: #ffffff;
-        --soft: #f5f6f7;
-        --muted: #6b6f74;
-        --rule: #e6e8eb;
-        --accent: #29abe0;
-        --accent-hover: #1f97c9;
+        --ink: #3b1f2e;
+        --muted: #8c6a7a;
+        --paper: #fff5f8;
+        --card: #ffffff;
+        --soft: #ffe3ec;
+        --pink: #f486ad;
+        --pink-deep: #e0628f;
+        --rule: #f3d3df;
+        --shadow: 0 10px 30px rgba(224, 98, 143, 0.14);
       }
       * {
         box-sizing: border-box;
@@ -26,236 +34,375 @@
       }
       body {
         margin: 0;
-        background: var(--paper);
-        color: var(--ink);
-        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-        -webkit-font-smoothing: antialiased;
         min-height: 100vh;
+        background:
+          radial-gradient(
+              circle at 1px 1px,
+              rgba(224, 98, 143, 0.12) 1px,
+              transparent 0
+            )
+            0 0 / 22px 22px,
+          var(--paper);
+        color: var(--ink);
+        font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
       }
       a {
         color: inherit;
       }
+      h1,
+      h2,
+      h3 {
+        font-family: "Fredoka", "Inter", sans-serif;
+        letter-spacing: -0.01em;
+      }
       main {
-        max-width: 960px;
+        max-width: 980px;
         margin: 0 auto;
-        padding: 0 16px 64px;
+        padding: 0 18px 72px;
       }
 
       .profile {
         text-align: center;
-        padding: 48px 0 28px;
+        padding: 56px 0 26px;
       }
       .avatar {
-        width: 96px;
-        height: 96px;
+        width: 112px;
+        height: 112px;
         border-radius: 50%;
-        background: var(--soft);
-        border: 1px solid var(--rule);
-        margin: 0 auto 14px;
-        display: grid;
-        place-items: center;
-        overflow: hidden;
+        margin: 0 auto 16px;
+        padding: 4px;
+        background: linear-gradient(135deg, var(--pink), #ffc2d6);
+        box-shadow: var(--shadow);
       }
       .avatar img {
         width: 100%;
         height: 100%;
+        border-radius: 50%;
         object-fit: cover;
+        display: block;
+        background: var(--card);
       }
       .profile h1 {
-        font-size: 1.6rem;
+        font-size: 2.2rem;
         margin: 0 0 6px;
-        letter-spacing: -0.01em;
+        font-weight: 700;
       }
       .profile p {
         color: var(--muted);
-        margin: 0;
-        font-size: 0.98rem;
+        margin: 0 auto;
+        max-width: 420px;
+        line-height: 1.5;
       }
-
       .donate {
-        display: inline-block;
-        margin-top: 16px;
-        border: 1px solid var(--accent);
-        color: var(--accent);
-        border-radius: 6px;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 18px;
+        background: var(--card);
+        border: 2px solid var(--pink);
+        color: var(--pink-deep);
+        border-radius: 999px;
         padding: 10px 22px;
-        font-weight: 700;
+        font-weight: 600;
         text-decoration: none;
+        transition:
+          background 0.15s ease,
+          color 0.15s ease;
       }
       .donate:hover {
-        background: var(--accent);
+        background: var(--pink);
         color: #ffffff;
       }
 
-      .section-title {
-        border-top: 1px solid var(--rule);
-        padding-top: 24px;
-        margin: 8px 0 20px;
-        font-size: 1rem;
-        font-weight: 700;
+      .shop-head {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        margin: 36px 0 18px;
+        border-bottom: 2px dashed var(--rule);
+        padding-bottom: 12px;
+      }
+      .shop-head h2 {
+        font-size: 1.5rem;
+        margin: 0;
+        font-weight: 600;
+      }
+      .shop-head span {
+        color: var(--muted);
+        font-size: 0.9rem;
       }
 
       .grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-        gap: 20px;
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 22px;
       }
       .card {
-        text-decoration: none;
-        border: 1px solid var(--rule);
-        border-radius: 12px;
+        background: var(--card);
+        border-radius: 22px;
         overflow: hidden;
+        text-decoration: none;
         display: flex;
         flex-direction: column;
-        background: var(--paper);
-        transition: box-shadow 0.15s ease;
+        box-shadow: 0 2px 0 var(--rule);
+        border: 2px solid var(--rule);
+        transition:
+          transform 0.18s ease,
+          box-shadow 0.18s ease,
+          border-color 0.18s ease;
       }
       .card:hover {
-        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.07);
+        transform: translateY(-4px) rotate(-0.4deg);
+        box-shadow: var(--shadow);
+        border-color: var(--pink);
       }
       .thumb {
+        position: relative;
+        aspect-ratio: 4 / 3;
         background: var(--soft);
-        aspect-ratio: 1 / 1;
         display: grid;
         place-items: center;
+        overflow: hidden;
       }
-      .thumb img {
-        width: 50%;
+      .thumb .fan {
+        position: relative;
+        width: 180px;
+        height: 120px;
+      }
+      .thumb .fan img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 64px;
         image-rendering: pixelated;
+        transform: translate(-50%, -50%) rotate(var(--r));
+        filter: drop-shadow(0 4px 6px rgba(59, 31, 46, 0.18));
       }
       .info {
-        padding: 14px 16px 16px;
+        padding: 16px 18px 18px;
         display: flex;
         flex-direction: column;
-        gap: 4px;
+        gap: 6px;
+        flex: 1;
       }
-      .info h2 {
+      .info h3 {
         margin: 0;
-        font-size: 1rem;
+        font-size: 1.2rem;
+        font-weight: 600;
       }
       .info p {
         margin: 0;
         color: var(--muted);
-        font-size: 0.88rem;
-        line-height: 1.4;
+        font-size: 0.92rem;
+        line-height: 1.45;
+      }
+      .row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: auto;
+        padding-top: 10px;
       }
       .price {
+        background: var(--soft);
+        color: var(--pink-deep);
         font-weight: 700;
-        margin-top: 8px;
+        border-radius: 999px;
+        padding: 6px 14px;
+        font-size: 0.95rem;
+      }
+      .view {
+        color: var(--pink-deep);
+        font-weight: 600;
+        font-size: 0.9rem;
       }
 
       .back {
         display: inline-block;
-        margin: 24px 0 8px;
+        margin: 28px 0 10px;
         color: var(--muted);
         text-decoration: none;
-        font-size: 0.92rem;
+        font-weight: 600;
+        font-size: 0.95rem;
       }
       .back:hover {
-        color: var(--ink);
+        color: var(--pink-deep);
       }
       .detail {
         display: grid;
         grid-template-columns: 1fr;
         gap: 32px;
-        margin-top: 8px;
       }
-      @media (min-width: 800px) {
+      @media (min-width: 820px) {
         .detail {
-          grid-template-columns: 1fr 1fr;
+          grid-template-columns: 1.1fr 1fr;
           align-items: start;
         }
       }
+
       .gallery {
         background: var(--soft);
-        border-radius: 12px;
-        padding: 24px;
+        border-radius: 28px;
+        padding: 26px;
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(92px, 1fr));
         gap: 12px;
-        align-items: center;
-        justify-items: center;
+        box-shadow: inset 0 0 0 2px var(--rule);
       }
       .gallery figure {
         margin: 0;
+        background: var(--card);
+        border-radius: 16px;
+        padding: 12px 6px 8px;
         text-align: center;
+        box-shadow: 0 2px 0 var(--rule);
       }
       .gallery img {
-        width: 48px;
+        width: 44px;
         image-rendering: pixelated;
       }
       .gallery figcaption {
         font-size: 0.68rem;
         color: var(--muted);
-        margin-top: 4px;
+        margin-top: 6px;
+        font-weight: 500;
+      }
+
+      .eyebrow {
+        display: inline-block;
+        background: var(--soft);
+        color: var(--pink-deep);
+        font-weight: 600;
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        padding: 5px 12px;
+        border-radius: 999px;
+        margin-bottom: 12px;
       }
       .detail h1 {
-        font-size: 1.7rem;
-        margin: 0 0 8px;
-        letter-spacing: -0.01em;
+        font-size: 2.2rem;
+        margin: 0 0 10px;
+        font-weight: 700;
+        line-height: 1.1;
       }
       .detail .lead {
         color: var(--muted);
-        line-height: 1.55;
-        margin: 0 0 18px;
+        line-height: 1.6;
+        margin: 0 0 22px;
+        font-size: 1.02rem;
       }
       .buy {
         display: flex;
         align-items: center;
         gap: 16px;
-        margin: 18px 0 24px;
         flex-wrap: wrap;
+        margin-bottom: 26px;
       }
       .buy .price {
-        font-size: 1.4rem;
-        margin: 0;
+        font-size: 1.25rem;
+        padding: 8px 18px;
       }
       .btn {
         display: inline-block;
-        background: var(--accent);
+        background: var(--pink);
         color: #ffffff;
-        border-radius: 6px;
-        padding: 12px 24px;
+        border-radius: 999px;
+        padding: 14px 32px;
         font-weight: 700;
-        font-size: 1rem;
+        font-size: 1.02rem;
         text-decoration: none;
+        box-shadow: 0 6px 0 var(--pink-deep);
+        transition:
+          transform 0.08s ease,
+          box-shadow 0.08s ease;
       }
       .btn:hover {
-        background: var(--accent-hover);
+        background: #f6729f;
       }
-      .list {
-        padding-left: 20px;
-        line-height: 1.7;
-        margin: 0 0 20px;
-        color: var(--muted);
+      .btn:active {
+        transform: translateY(4px);
+        box-shadow: 0 2px 0 var(--pink-deep);
       }
-      .box {
-        border-top: 1px solid var(--rule);
-        padding-top: 18px;
-        margin-top: 18px;
+
+      .perks {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 26px;
+        display: grid;
+        gap: 10px;
       }
-      .box h3 {
-        margin: 0 0 8px;
+      .perks li {
+        background: var(--card);
+        border: 2px solid var(--rule);
+        border-radius: 14px;
+        padding: 12px 14px 12px 42px;
+        position: relative;
+        color: var(--ink);
+        font-size: 0.96rem;
+      }
+      .perks li::before {
+        content: "♥";
+        position: absolute;
+        left: 14px;
+        top: 11px;
+        color: var(--pink);
         font-size: 1rem;
       }
-      .box p,
-      .box li {
-        color: var(--muted);
-        font-size: 0.95rem;
-        line-height: 1.6;
+
+      .steps {
+        background: var(--card);
+        border-radius: 22px;
+        padding: 22px;
+        border: 2px solid var(--rule);
       }
-      .box ol {
-        padding-left: 20px;
+      .steps h3 {
+        margin: 0 0 12px;
+        font-size: 1.15rem;
+        font-weight: 600;
+      }
+      .steps ol {
         margin: 0;
+        padding-left: 0;
+        list-style: none;
+        counter-reset: s;
+        display: grid;
+        gap: 10px;
       }
-      footer {
-        max-width: 960px;
-        margin: 0 auto;
-        padding: 24px 16px 40px;
+      .steps li {
+        counter-increment: s;
+        display: grid;
+        grid-template-columns: 32px 1fr;
+        gap: 12px;
+        align-items: start;
         color: var(--muted);
-        font-size: 0.86rem;
+        line-height: 1.5;
+        font-size: 0.95rem;
+      }
+      .steps li::before {
+        content: counter(s);
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: var(--soft);
+        color: var(--pink-deep);
+        font-weight: 700;
+        display: grid;
+        place-items: center;
+        font-family: "Fredoka", sans-serif;
+      }
+      .steps strong {
+        color: var(--ink);
+      }
+
+      footer {
+        max-width: 980px;
+        margin: 0 auto;
+        padding: 26px 18px 44px;
         text-align: center;
-        border-top: 1px solid var(--rule);
+        color: var(--muted);
+        font-size: 0.9rem;
       }
       [hidden] {
         display: none !important;
@@ -267,16 +414,19 @@
       <header class="profile">
         <div class="avatar"><img alt="pinkyussp" id="avatarImg" /></div>
         <h1>pinkyussp</h1>
-        <p>Digital downloads</p>
+        <p>Little digital things for your desktop. Pick one and it's yours.</p>
         <a
           class="donate"
           href="https://buy.polar.sh/polar_cl_KPKiCnQm4KAfPqWdcGHcPgN1EF3Or1W3uQLJB2nxoRD"
-          >Donate</a
+          >♥ Donate</a
         >
       </header>
 
       <section id="shop">
-        <h2 class="section-title">Shop</h2>
+        <div class="shop-head">
+          <h2>Shop</h2>
+          <span id="count"></span>
+        </div>
         <div class="grid" id="grid"></div>
       </section>
 
@@ -285,37 +435,42 @@
         <div class="detail">
           <div class="gallery" id="gallery"></div>
           <div>
+            <span class="eyebrow">Cursor set</span>
             <h1>Bunni Cursor Set</h1>
             <p class="lead">
-              A white, cute bunni cursor set for Windows. It includes 17
-              cursors, covering normal select, busy, text, links, resize, move,
-              and more.
+              A white, cute bunni cursor set for Windows. It includes 17 cursors
+              covering normal select, busy, text, links, resize, move, and more.
             </p>
             <div class="buy">
               <span class="price" id="price"></span>
               <a
                 class="btn"
-                id="buy"
                 href="https://buy.polar.sh/polar_cl_ML93JWrPfWwIgXpCfBZo8FMG8SOGdUe7SPOId3xttvU"
                 >Buy now</a
               >
             </div>
-            <ul class="list">
+            <ul class="perks">
               <li>17 cursor files (.cur and .ani)</li>
               <li>Windows cursor scheme with an install file</li>
-              <li>Made by yurilover. Released to the public domain.</li>
+              <li>Made by yurilover, released to the public domain</li>
             </ul>
-            <div class="box">
+            <div class="steps">
               <h3>How to install</h3>
               <ol>
-                <li>Unzip the download.</li>
                 <li>
-                  Right-click <strong>install.inf</strong> and choose
-                  <strong>Install</strong>.
+                  <span><strong>Unzip</strong> the download.</span>
                 </li>
                 <li>
-                  Open Settings, search for <strong>Mouse cursor</strong>, and
-                  pick <strong>Lana</strong> from the scheme list. Click Apply.
+                  <span
+                    >Right-click <strong>install.inf</strong> and choose
+                    <strong>Install</strong>.</span
+                  >
+                </li>
+                <li>
+                  <span
+                    >Open Settings, search for <strong>Mouse cursor</strong>,
+                    pick <strong>Lana</strong>, and click Apply.</span
+                  >
                 </li>
               </ol>
             </div>
@@ -324,7 +479,7 @@
       </section>
     </main>
 
-    <footer>© pinkyussp</footer>
+    <footer>Made with ♥ by pinkyussp</footer>
 
     <script>
       const IMG = {
@@ -373,7 +528,7 @@
           name: "Bunni Cursor Set",
           blurb: "White, cute bunni cursors for Windows. 17 pieces.",
           price: "$5.99",
-          thumb: "normal-select.png",
+          fan: ["normal-select.png", "busy.png", "link-select.png"],
           gallery: [
             ["normal-select.png", "Normal"],
             ["normal-select-2.png", "Normal 2"],
@@ -399,17 +554,34 @@
       const grid = document.getElementById("grid");
       const shop = document.getElementById("shop");
       const product = document.getElementById("product");
+      document.getElementById("count").textContent =
+        PRODUCTS.length + (PRODUCTS.length === 1 ? " item" : " items");
 
+      const tilts = [-14, 0, 14];
       for (const p of PRODUCTS) {
         const a = document.createElement("a");
         a.className = "card";
         a.href = "#/" + p.slug;
+        const fan = p.fan
+          .map(
+            (f, i) =>
+              '<img alt="" src="' +
+              IMG[f] +
+              '" style="--r:' +
+              tilts[i] +
+              "deg;left:" +
+              (50 + (i - 1) * 26) +
+              "%;z-index:" +
+              (i === 1 ? 2 : 1) +
+              '">',
+          )
+          .join("");
         a.innerHTML =
-          '<div class="thumb"><img alt="" src="' +
-          IMG[p.thumb] +
-          '"></div>' +
-          '<div class="info"><h2></h2><p></p><span class="price"></span></div>';
-        a.querySelector("h2").textContent = p.name;
+          '<div class="thumb"><div class="fan">' +
+          fan +
+          "</div></div>" +
+          '<div class="info"><h3></h3><p></p><div class="row"><span class="price"></span><span class="view">View →</span></div></div>';
+        a.querySelector("h3").textContent = p.name;
         a.querySelector("p").textContent = p.blurb;
         a.querySelector(".price").textContent = p.price;
         grid.appendChild(a);

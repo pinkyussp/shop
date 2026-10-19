@@ -1,65 +1,140 @@
 <!doctype html>
 <html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Checkout cancelled · pinkyussp</title>
-<style>
-  :root {
-    color-scheme: light;
-    --ink: #1c1c1c;
-    --paper: #ffffff;
-    --soft: #f5f6f7;
-    --muted: #6b6f74;
-    --rule: #e6e8eb;
-    --accent: #29abe0;
-    --accent-hover: #1f97c9;
-  }
-  * { box-sizing: border-box; }
-  body {
-    margin: 0;
-    min-height: 100vh;
-    background: var(--paper);
-    color: var(--ink);
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    display: grid;
-    place-items: center;
-    padding: 24px 16px;
-  }
-  .box { max-width: 480px; width: 100%; text-align: center; }
-  .icon {
-    width: 64px;
-    height: 64px;
-    border-radius: 50%;
-    background: var(--soft);
-    border: 1px solid var(--rule);
-    margin: 0 auto 18px;
-    display: grid;
-    place-items: center;
-    font-size: 26px;
-    color: var(--muted);
-  }
-  h1 { font-size: 1.6rem; margin: 0 0 10px; letter-spacing: -0.01em; }
-  p { color: var(--muted); line-height: 1.6; margin: 0 0 22px; }
-  .btn {
-    display: inline-block;
-    background: var(--accent);
-    color: #ffffff;
-    border-radius: 6px;
-    padding: 12px 24px;
-    font-weight: 700;
-    text-decoration: none;
-  }
-  .btn:hover { background: var(--accent-hover); }
-</style>
-</head>
-<body>
-<main class="box">
-  <div class="icon">←</div>
-  <h1>Checkout cancelled</h1>
-  <p>No problem. You left checkout, so nothing was charged. You can pick the cursor set again whenever you're ready.</p>
-  <a class="btn" href="index.html">Back to shop</a>
-</main>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Checkout cancelled · pinkyussp</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #3b1f2e;
+        --muted: #8c6a7a;
+        --paper: #fff5f8;
+        --card: #ffffff;
+        --soft: #ffe3ec;
+        --pink: #f486ad;
+        --pink-deep: #e0628f;
+        --rule: #f3d3df;
+        --shadow: 0 10px 30px rgba(224, 98, 143, 0.14);
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background:
+          radial-gradient(
+              circle at 1px 1px,
+              rgba(224, 98, 143, 0.12) 1px,
+              transparent 0
+            )
+            0 0 / 22px 22px,
+          var(--paper);
+        color: var(--ink);
+        font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        display: grid;
+        place-items: center;
+        padding: 28px 18px;
+      }
+      h1 {
+        font-family: "Fredoka", "Inter", sans-serif;
+        letter-spacing: -0.01em;
+      }
+      .box {
+        max-width: 480px;
+        width: 100%;
+        text-align: center;
+        background: var(--card);
+        border: 2px solid var(--rule);
+        border-radius: 28px;
+        padding: 40px 28px 34px;
+        box-shadow: var(--shadow);
+      }
+      .badge {
+        width: 84px;
+        height: 84px;
+        border-radius: 50%;
+        margin: 0 auto 18px;
+        display: grid;
+        place-items: center;
+        background: linear-gradient(135deg, var(--pink), #ffc2d6);
+        color: #ffffff;
+        font-family: "Fredoka", sans-serif;
+        font-size: 2.2rem;
+        font-weight: 700;
+        box-shadow: 0 6px 0 var(--pink-deep);
+      }
+      h1 {
+        font-size: 1.9rem;
+        margin: 0 0 12px;
+        font-weight: 700;
+        line-height: 1.15;
+      }
+      p {
+        color: var(--muted);
+        line-height: 1.6;
+        margin: 0 0 14px;
+      }
+      .order {
+        display: inline-block;
+        background: var(--soft);
+        color: var(--pink-deep);
+        border-radius: 999px;
+        padding: 7px 14px;
+        font-size: 0.86rem;
+        font-weight: 600;
+        margin: 6px 0 18px;
+        word-break: break-all;
+      }
+      .order[hidden] {
+        display: none;
+      }
+      .btn {
+        display: inline-block;
+        background: var(--pink);
+        color: #ffffff;
+        border-radius: 999px;
+        padding: 14px 32px;
+        font-weight: 700;
+        text-decoration: none;
+        box-shadow: 0 6px 0 var(--pink-deep);
+        margin-top: 8px;
+        transition:
+          transform 0.08s ease,
+          box-shadow 0.08s ease;
+      }
+      .btn:hover {
+        background: #f6729f;
+      }
+      .btn:active {
+        transform: translateY(4px);
+        box-shadow: 0 2px 0 var(--pink-deep);
+      }
+      .sparkle {
+        color: var(--pink);
+      }
+    </style>
+  </head>
+  <body>
+    <main class="box">
+      <div class="badge">←</div>
+      <h1>Checkout cancelled</h1>
+      <p>
+        No problem. You left checkout, so nothing was charged. You can pick the
+        cursor set again whenever you're ready.
+      </p>
+      <a class="btn" href="index.html">Back to shop</a>
+    </main>
+  </body>
 </html>
