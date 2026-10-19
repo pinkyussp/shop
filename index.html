@@ -6,25 +6,31 @@
       name="viewport"
       content="width=device-width, initial-scale=1, viewport-fit=cover"
     />
-    <title>pinkyussp shop</title>
+    <title>pinkyussp</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Figtree:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <style>
       :root {
         color-scheme: light;
-        --ink: #3b1f2e;
-        --muted: #8c6a7a;
-        --paper: #fff5f8;
-        --card: #ffffff;
-        --soft: #ffe3ec;
-        --pink: #f486ad;
-        --pink-deep: #e0628f;
-        --rule: #f3d3df;
-        --shadow: 0 10px 30px rgba(224, 98, 143, 0.14);
+        --ink: #2e2a27;
+        --ink-2: #776d66;
+        --ink-3: #a79d94;
+        --bg: #f4f0e8;
+        --paper: #fbf9f4;
+        --line: #dcd3c6;
+        --rose: #f3d9e2;
+        --mint: #d9ece2;
+        --lilac: #e4daf4;
+        --sand: #efe6d6;
+        --accent: #a94d74;
+        --accent-deep: #8c3b5d;
+        --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+        --serif: "Fraunces", "Iowan Old Style", Georgia, serif;
+        --sans: "Figtree", "Helvetica Neue", Arial, sans-serif;
       }
       * {
         box-sizing: border-box;
@@ -35,374 +41,626 @@
       body {
         margin: 0;
         min-height: 100vh;
-        background:
-          radial-gradient(
-              circle at 1px 1px,
-              rgba(224, 98, 143, 0.12) 1px,
-              transparent 0
-            )
-            0 0 / 22px 22px,
-          var(--paper);
+        background: var(--bg);
         color: var(--ink);
-        font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+        font-family: var(--sans);
+        font-size: 16px;
+        line-height: 1.6;
         -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
       }
       a {
         color: inherit;
       }
-      h1,
-      h2,
-      h3 {
-        font-family: "Fredoka", "Inter", sans-serif;
-        letter-spacing: -0.01em;
+      img {
+        display: block;
       }
-      main {
-        max-width: 980px;
+      .wrap {
+        max-width: 1120px;
         margin: 0 auto;
-        padding: 0 18px 72px;
+        padding: 0 clamp(20px, 4vw, 44px);
       }
 
-      .profile {
-        text-align: center;
-        padding: 56px 0 26px;
+      .label {
+        font-size: 0.74rem;
+        font-weight: 600;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--ink-2);
+        margin: 0;
       }
-      .avatar {
-        width: 112px;
-        height: 112px;
-        border-radius: 50%;
-        margin: 0 auto 16px;
-        padding: 4px;
-        background: linear-gradient(135deg, var(--pink), #ffc2d6);
-        box-shadow: var(--shadow);
+
+      .masthead {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+        padding: 26px 0;
+        border-bottom: 1px solid var(--line);
+        animation: rise 0.7s var(--ease) both;
       }
-      .avatar img {
-        width: 100%;
-        height: 100%;
+      .mark {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        text-decoration: none;
+      }
+      .mark img {
+        width: 36px;
+        height: 36px;
         border-radius: 50%;
         object-fit: cover;
-        display: block;
-        background: var(--card);
       }
-      .profile h1 {
-        font-size: 2.2rem;
-        margin: 0 0 6px;
-        font-weight: 700;
+      .mark span {
+        font-family: var(--serif);
+        font-size: 1.35rem;
       }
-      .profile p {
-        color: var(--muted);
-        margin: 0 auto;
-        max-width: 420px;
-        line-height: 1.5;
+      .nav {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        font-size: 0.94rem;
+        font-weight: 500;
+      }
+      .nav a {
+        text-decoration: none;
+        color: var(--ink-2);
+        position: relative;
+        padding: 4px 0;
+      }
+      .nav a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 1px;
+        background: currentColor;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.35s var(--ease);
+      }
+      .nav a:hover {
+        color: var(--ink);
+      }
+      .nav a:hover::after {
+        transform: scaleX(1);
+      }
+      .nav .sep {
+        width: 1px;
+        height: 18px;
+        background: var(--line);
+      }
+      .nav .icon {
+        display: inline-flex;
+        color: var(--ink-2);
+      }
+      .nav .icon:hover {
+        color: var(--ink);
+      }
+
+      @media (max-width: 640px) {
+        .masthead {
+          flex-wrap: wrap;
+        }
+        .nav {
+          flex-wrap: wrap;
+          gap: 12px 18px;
+          font-size: 0.9rem;
+        }
+        .nav .sep {
+          display: none;
+        }
+      }
+      .intro {
+        display: grid;
+        grid-template-columns: 1.4fr 1fr;
+        gap: clamp(28px, 5vw, 72px);
+        align-items: end;
+        padding: clamp(56px, 9vw, 110px) 0 clamp(48px, 7vw, 80px);
+      }
+      @media (max-width: 760px) {
+        .intro {
+          grid-template-columns: 1fr;
+        }
+      }
+      .intro h1 {
+        font-family: var(--serif);
+        font-weight: 400;
+        font-size: clamp(3.2rem, 9vw, 6.4rem);
+        line-height: 0.92;
+        letter-spacing: -0.03em;
+        margin: 18px 0 0;
+        animation: rise 0.9s var(--ease) 0.1s both;
+      }
+      .intro h1 em {
+        font-style: italic;
+        color: var(--accent);
+      }
+      .intro .blurb {
+        margin: 0;
+        color: var(--ink-2);
+        font-size: 1.08rem;
+        max-width: 36ch;
+        animation: rise 0.9s var(--ease) 0.25s both;
+      }
+      .intro .cta {
+        margin-top: 26px;
+        display: flex;
+        gap: 14px;
+        align-items: center;
+        flex-wrap: wrap;
+        animation: rise 0.9s var(--ease) 0.35s both;
       }
       .donate {
+        font-weight: 600;
+        color: var(--accent);
+        text-decoration: none;
+        padding-bottom: 3px;
+        background: linear-gradient(currentColor, currentColor) 0 100% / 0% 1px
+          no-repeat;
+        transition:
+          background-size 0.4s var(--ease),
+          color 0.2s;
+      }
+      .donate:hover {
+        background-size: 100% 1px;
+        color: var(--accent-deep);
+      }
+
+      .section-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        border-bottom: 1px solid var(--line);
+        padding-bottom: 14px;
+        margin-bottom: 40px;
+      }
+      .section-top h2 {
+        font-family: var(--serif);
+        font-weight: 400;
+        font-size: 2rem;
+        margin: 0;
+        letter-spacing: -0.01em;
+      }
+
+      .wall {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 28px 24px;
+        align-items: start;
+      }
+      .frame-link {
+        grid-column: span 6;
+        text-decoration: none;
+        display: block;
+      }
+      @media (max-width: 720px) {
+        .frame-link {
+          grid-column: span 12;
+        }
+      }
+      .frame {
+        position: relative;
+        background: var(--paper);
+        padding: clamp(14px, 2.4vw, 26px);
+        border: 1px solid var(--line);
+        box-shadow:
+          0 1px 0 rgba(46, 42, 39, 0.04),
+          0 18px 40px -26px rgba(46, 42, 39, 0.35);
+        transition:
+          transform 0.6s var(--ease),
+          box-shadow 0.6s var(--ease);
+      }
+      .frame-link:hover .frame {
+        transform: translateY(-6px);
+        box-shadow:
+          0 1px 0 rgba(46, 42, 39, 0.04),
+          0 32px 60px -28px rgba(46, 42, 39, 0.45);
+      }
+      .mat {
+        position: relative;
+        aspect-ratio: 5 / 4;
+        background: var(--rose);
+        border: 1px solid rgba(46, 42, 39, 0.12);
+        display: grid;
+        place-items: center;
+        overflow: hidden;
+        transition: background-color 0.6s var(--ease);
+      }
+      .mat::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          ellipse at 50% 35%,
+          rgba(255, 255, 255, 0.55),
+          transparent 65%
+        );
+        pointer-events: none;
+      }
+      .mat img {
+        width: min(38%, 150px);
+        aspect-ratio: 1;
+        image-rendering: pixelated;
+        object-fit: contain;
+        filter: drop-shadow(0 10px 14px rgba(46, 42, 39, 0.18));
+        transition:
+          opacity 0.45s var(--ease),
+          transform 0.6s var(--ease);
+        position: relative;
+        z-index: 1;
+      }
+      .frame-link:hover .mat img {
+        transform: scale(1.06) translateY(-2px);
+      }
+      .mat img.swap {
+        opacity: 0;
+        transform: translateY(6px) scale(0.98);
+      }
+      .caption {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 18px;
+        padding: 20px 4px 0;
+      }
+      .caption h3 {
+        font-family: var(--serif);
+        font-weight: 400;
+        font-size: 1.6rem;
+        margin: 0;
+        letter-spacing: -0.01em;
+      }
+      .caption p {
+        margin: 6px 0 0;
+        color: var(--ink-2);
+        font-size: 0.97rem;
+      }
+      .price {
+        font-family: var(--serif);
+        font-size: 1.25rem;
+        white-space: nowrap;
+      }
+      .meta-row {
+        display: flex;
+        gap: 14px;
+        margin-top: 14px;
+        font-size: 0.82rem;
+        color: var(--ink-3);
+        letter-spacing: 0.04em;
+      }
+      .view {
+        color: var(--accent);
+        font-weight: 600;
+        font-size: 0.92rem;
+      }
+      .view::after {
+        content: " →";
+        display: inline-block;
+        transition: transform 0.35s var(--ease);
+      }
+      .frame-link:hover .view::after {
+        transform: translateX(4px);
+      }
+
+      .studio {
+        margin-top: clamp(72px, 10vw, 120px);
+        padding: clamp(36px, 6vw, 64px) 0;
+        border-top: 1px solid var(--line);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+      }
+      @media (max-width: 720px) {
+        .studio {
+          grid-template-columns: 1fr;
+        }
+      }
+      .studio h2 {
+        font-family: var(--serif);
+        font-weight: 400;
+        font-size: 2rem;
+        margin: 0 0 10px;
+        letter-spacing: -0.01em;
+      }
+      .studio p {
+        margin: 0;
+        color: var(--ink-2);
+        max-width: 40ch;
+      }
+      .studio .links {
+        display: grid;
+        gap: 0;
+      }
+      .studio .links a {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px 0;
+        border-bottom: 1px solid var(--line);
+        text-decoration: none;
+        font-family: var(--serif);
+        font-size: 1.3rem;
+        transition:
+          padding 0.4s var(--ease),
+          color 0.2s;
+      }
+      .studio .links a:first-child {
+        border-top: 1px solid var(--line);
+      }
+      .studio .links a:hover {
+        padding-left: 10px;
+        color: var(--accent);
+      }
+      .studio .links a span {
+        font-family: var(--sans);
+        font-size: 0.88rem;
+        color: var(--ink-3);
+      }
+
+      .foot {
+        border-top: 1px solid var(--line);
+        padding: 24px 0 44px;
+        display: flex;
+        justify-content: space-between;
+        color: var(--ink-3);
+        font-size: 0.88rem;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      #product {
+        animation: fade 0.5s var(--ease) both;
+      }
+      .back {
         display: inline-flex;
         align-items: center;
         gap: 8px;
-        margin-top: 18px;
-        background: var(--card);
-        border: 2px solid var(--pink);
-        color: var(--pink-deep);
-        border-radius: 999px;
-        padding: 10px 22px;
-        font-weight: 600;
+        margin: 36px 0 36px;
+        color: var(--ink-2);
         text-decoration: none;
+        font-size: 0.94rem;
+        font-weight: 500;
         transition:
-          background 0.15s ease,
-          color 0.15s ease;
-      }
-      .donate:hover {
-        background: var(--pink);
-        color: #ffffff;
-      }
-
-      .shop-head {
-        display: flex;
-        align-items: baseline;
-        justify-content: space-between;
-        margin: 36px 0 18px;
-        border-bottom: 2px dashed var(--rule);
-        padding-bottom: 12px;
-      }
-      .shop-head h2 {
-        font-size: 1.5rem;
-        margin: 0;
-        font-weight: 600;
-      }
-      .shop-head span {
-        color: var(--muted);
-        font-size: 0.9rem;
-      }
-
-      .grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-        gap: 22px;
-      }
-      .card {
-        background: var(--card);
-        border-radius: 22px;
-        overflow: hidden;
-        text-decoration: none;
-        display: flex;
-        flex-direction: column;
-        box-shadow: 0 2px 0 var(--rule);
-        border: 2px solid var(--rule);
-        transition:
-          transform 0.18s ease,
-          box-shadow 0.18s ease,
-          border-color 0.18s ease;
-      }
-      .card:hover {
-        transform: translateY(-4px) rotate(-0.4deg);
-        box-shadow: var(--shadow);
-        border-color: var(--pink);
-      }
-      .thumb {
-        position: relative;
-        aspect-ratio: 4 / 3;
-        background: var(--soft);
-        display: grid;
-        place-items: center;
-        overflow: hidden;
-      }
-      .thumb .fan {
-        position: relative;
-        width: 180px;
-        height: 120px;
-      }
-      .thumb .fan img {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 64px;
-        image-rendering: pixelated;
-        transform: translate(-50%, -50%) rotate(var(--r));
-        filter: drop-shadow(0 4px 6px rgba(59, 31, 46, 0.18));
-      }
-      .info {
-        padding: 16px 18px 18px;
-        display: flex;
-        flex-direction: column;
-        gap: 6px;
-        flex: 1;
-      }
-      .info h3 {
-        margin: 0;
-        font-size: 1.2rem;
-        font-weight: 600;
-      }
-      .info p {
-        margin: 0;
-        color: var(--muted);
-        font-size: 0.92rem;
-        line-height: 1.45;
-      }
-      .row {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-top: auto;
-        padding-top: 10px;
-      }
-      .price {
-        background: var(--soft);
-        color: var(--pink-deep);
-        font-weight: 700;
-        border-radius: 999px;
-        padding: 6px 14px;
-        font-size: 0.95rem;
-      }
-      .view {
-        color: var(--pink-deep);
-        font-weight: 600;
-        font-size: 0.9rem;
-      }
-
-      .back {
-        display: inline-block;
-        margin: 28px 0 10px;
-        color: var(--muted);
-        text-decoration: none;
-        font-weight: 600;
-        font-size: 0.95rem;
+          color 0.2s,
+          gap 0.35s var(--ease);
       }
       .back:hover {
-        color: var(--pink-deep);
+        color: var(--ink);
+        gap: 12px;
       }
-      .detail {
+      .spread {
         display: grid;
         grid-template-columns: 1fr;
-        gap: 32px;
+        gap: 48px;
+        padding-bottom: 70px;
       }
-      @media (min-width: 820px) {
-        .detail {
-          grid-template-columns: 1.1fr 1fr;
+      @media (min-width: 900px) {
+        .spread {
+          grid-template-columns: 1.25fr 1fr;
+          gap: 72px;
           align-items: start;
         }
       }
-
-      .gallery {
-        background: var(--soft);
-        border-radius: 28px;
-        padding: 26px;
+      .info {
+        position: relative;
+      }
+      @media (min-width: 900px) {
+        .info {
+          position: sticky;
+          top: 36px;
+        }
+      }
+      .sheet {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(92px, 1fr));
+        grid-template-columns: repeat(4, 1fr);
         gap: 12px;
-        box-shadow: inset 0 0 0 2px var(--rule);
       }
-      .gallery figure {
+      .sheet .plate {
         margin: 0;
-        background: var(--card);
-        border-radius: 16px;
-        padding: 12px 6px 8px;
+        background: var(--paper);
+        border: 1px solid var(--line);
+        padding: 16px 6px 12px;
         text-align: center;
-        box-shadow: 0 2px 0 var(--rule);
+        transition:
+          transform 0.45s var(--ease),
+          box-shadow 0.45s var(--ease),
+          border-color 0.3s;
+        animation: rise 0.7s var(--ease) both;
       }
-      .gallery img {
-        width: 44px;
+      .sheet .plate:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 16px 28px -18px rgba(46, 42, 39, 0.45);
+        border-color: var(--ink-3);
+      }
+      .sheet img {
+        width: 40px;
+        height: 40px;
+        margin: 0 auto;
         image-rendering: pixelated;
+        object-fit: contain;
+        transition: transform 0.45s var(--ease);
       }
-      .gallery figcaption {
-        font-size: 0.68rem;
-        color: var(--muted);
-        margin-top: 6px;
-        font-weight: 500;
+      .sheet .plate:hover img {
+        transform: scale(1.35);
       }
-
-      .eyebrow {
-        display: inline-block;
-        background: var(--soft);
-        color: var(--pink-deep);
-        font-weight: 600;
-        font-size: 0.78rem;
-        text-transform: uppercase;
-        letter-spacing: 0.08em;
-        padding: 5px 12px;
-        border-radius: 999px;
-        margin-bottom: 12px;
+      .sheet figcaption {
+        font-size: 0.7rem;
+        color: var(--ink-2);
+        margin-top: 10px;
+        letter-spacing: 0.02em;
       }
-      .detail h1 {
-        font-size: 2.2rem;
-        margin: 0 0 10px;
-        font-weight: 700;
-        line-height: 1.1;
+      .kicker {
+        margin-bottom: 14px;
+        color: var(--accent);
       }
-      .detail .lead {
-        color: var(--muted);
-        line-height: 1.6;
-        margin: 0 0 22px;
-        font-size: 1.02rem;
+      .pname {
+        font-family: var(--serif);
+        font-weight: 400;
+        font-size: clamp(2.6rem, 6vw, 3.8rem);
+        line-height: 0.98;
+        margin: 0 0 18px;
+        letter-spacing: -0.025em;
       }
-      .buy {
+      .lead {
+        color: var(--ink-2);
+        font-size: 1.05rem;
+        margin: 0 0 28px;
+        max-width: 46ch;
+      }
+      .buy-row {
         display: flex;
         align-items: center;
-        gap: 16px;
+        gap: 24px;
         flex-wrap: wrap;
-        margin-bottom: 26px;
+        padding: 22px 0;
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        margin-bottom: 30px;
       }
-      .buy .price {
-        font-size: 1.25rem;
-        padding: 8px 18px;
+      .big-price {
+        font-family: var(--serif);
+        font-size: 2rem;
       }
-      .btn {
-        display: inline-block;
-        background: var(--pink);
-        color: #ffffff;
+      .buy {
+        position: relative;
+        overflow: hidden;
+        background: var(--ink);
+        color: var(--paper);
+        padding: 15px 36px;
         border-radius: 999px;
-        padding: 14px 32px;
-        font-weight: 700;
-        font-size: 1.02rem;
         text-decoration: none;
-        box-shadow: 0 6px 0 var(--pink-deep);
-        transition:
-          transform 0.08s ease,
-          box-shadow 0.08s ease;
+        font-weight: 600;
+        transition: transform 0.3s var(--ease);
+        isolation: isolate;
       }
-      .btn:hover {
-        background: #f6729f;
+      .buy::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: var(--accent);
+        transform: translateX(-101%);
+        transition: transform 0.5s var(--ease);
+        z-index: -1;
       }
-      .btn:active {
-        transform: translateY(4px);
-        box-shadow: 0 2px 0 var(--pink-deep);
+      .buy:hover::before {
+        transform: translateX(0);
       }
-
-      .perks {
+      .buy:hover {
+        transform: translateY(-2px);
+      }
+      .buy:active {
+        transform: translateY(0);
+      }
+      .specs {
         list-style: none;
         padding: 0;
-        margin: 0 0 26px;
-        display: grid;
-        gap: 10px;
+        margin: 0 0 36px;
       }
-      .perks li {
-        background: var(--card);
-        border: 2px solid var(--rule);
-        border-radius: 14px;
-        padding: 12px 14px 12px 42px;
+      .specs li {
+        padding: 12px 0;
+        border-bottom: 1px solid var(--line);
+        font-size: 0.97rem;
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+      }
+      .specs li span:last-child {
+        color: var(--ink-2);
+        text-align: right;
+      }
+      .install h2 {
+        font-family: var(--serif);
+        font-weight: 400;
+        font-size: 1.6rem;
+        margin: 0 0 16px;
+      }
+      .timeline {
+        list-style: none;
+        margin: 0;
+        padding: 0 0 0 26px;
         position: relative;
-        color: var(--ink);
-        font-size: 0.96rem;
       }
-      .perks li::before {
-        content: "♥";
+      .timeline::before {
+        content: "";
         position: absolute;
-        left: 14px;
-        top: 11px;
-        color: var(--pink);
-        font-size: 1rem;
+        left: 5px;
+        top: 8px;
+        bottom: 8px;
+        width: 1px;
+        background: var(--line);
       }
-
-      .steps {
-        background: var(--card);
-        border-radius: 22px;
-        padding: 22px;
-        border: 2px solid var(--rule);
+      .timeline li {
+        position: relative;
+        padding: 0 0 22px;
+        color: var(--ink-2);
       }
-      .steps h3 {
-        margin: 0 0 12px;
-        font-size: 1.15rem;
+      .timeline li:last-child {
+        padding-bottom: 0;
+      }
+      .timeline li::before {
+        content: "";
+        position: absolute;
+        left: -26px;
+        top: 7px;
+        width: 11px;
+        height: 11px;
+        border-radius: 50%;
+        background: var(--bg);
+        border: 1px solid var(--accent);
+        transition: background 0.4s var(--ease);
+      }
+      .timeline li.on::before {
+        background: var(--accent);
+      }
+      .timeline strong {
+        color: var(--ink);
         font-weight: 600;
       }
-      .steps ol {
-        margin: 0;
-        padding-left: 0;
-        list-style: none;
-        counter-reset: s;
-        display: grid;
-        gap: 10px;
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(16px);
+        transition:
+          opacity 0.8s var(--ease),
+          transform 0.8s var(--ease);
       }
-      .steps li {
-        counter-increment: s;
-        display: grid;
-        grid-template-columns: 32px 1fr;
-        gap: 12px;
-        align-items: start;
-        color: var(--muted);
-        line-height: 1.5;
-        font-size: 0.95rem;
-      }
-      .steps li::before {
-        content: counter(s);
-        width: 32px;
-        height: 32px;
-        border-radius: 50%;
-        background: var(--soft);
-        color: var(--pink-deep);
-        font-weight: 700;
-        display: grid;
-        place-items: center;
-        font-family: "Fredoka", sans-serif;
-      }
-      .steps strong {
-        color: var(--ink);
+      .reveal.in {
+        opacity: 1;
+        transform: none;
       }
 
-      footer {
-        max-width: 980px;
-        margin: 0 auto;
-        padding: 26px 18px 44px;
-        text-align: center;
-        color: var(--muted);
-        font-size: 0.9rem;
+      @keyframes rise {
+        from {
+          opacity: 0;
+          transform: translateY(14px);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+      @keyframes fade {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation: none !important;
+          transition: none !important;
+        }
+        .reveal {
+          opacity: 1;
+          transform: none;
+        }
       }
       [hidden] {
         display: none !important;
@@ -410,76 +668,147 @@
     </style>
   </head>
   <body>
-    <main>
-      <header class="profile">
-        <div class="avatar"><img alt="pinkyussp" id="avatarImg" /></div>
-        <h1>pinkyussp</h1>
-        <p>Little digital things for your desktop. Pick one and it's yours.</p>
-        <a
-          class="donate"
-          href="https://buy.polar.sh/polar_cl_KPKiCnQm4KAfPqWdcGHcPgN1EF3Or1W3uQLJB2nxoRD"
-          >♥ Donate</a
-        >
+    <div class="wrap">
+      <header class="masthead">
+        <a class="mark" href="#/">
+          <img alt="" id="avatarImg" />
+          <span>pinkyussp</span>
+        </a>
+        <nav class="nav" aria-label="Links">
+          <a href="#shop">Shop</a>
+          <span class="sep" aria-hidden="true"></span>
+          <a
+            href="https://www.threads.com/@pink.yussp"
+            target="_blank"
+            rel="noopener"
+            >Threads</a
+          >
+          <a
+            class="icon"
+            href="https://discord.com/users/1244917548898717779"
+            target="_blank"
+            rel="noopener"
+            aria-label="Discord"
+            title="Discord"
+            ><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+              <path
+                fill="currentColor"
+                d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"
+              /></svg
+          ></a>
+          <a
+            class="donate"
+            href="https://buy.polar.sh/polar_cl_KPKiCnQm4KAfPqWdcGHcPgN1EF3Or1W3uQLJB2nxoRD"
+            >Donate</a
+          >
+        </nav>
       </header>
 
       <section id="shop">
-        <div class="shop-head">
-          <h2>Shop</h2>
-          <span id="count"></span>
+        <div class="intro">
+          <div>
+            <p class="label">Digital downloads</p>
+            <h1>Small things,<br /><em>kept for your desktop.</em></h1>
+          </div>
+          <div>
+            <p class="blurb">
+              Cursor sets and little extras, made to be used every day. Each one
+              is a single download, and yours to keep.
+            </p>
+            <div class="cta">
+              <a class="donate" href="#shop">Browse the shop</a>
+            </div>
+          </div>
         </div>
-        <div class="grid" id="grid"></div>
+
+        <div class="section-top">
+          <h2>The shop</h2>
+          <p class="label" id="count"></p>
+        </div>
+        <div class="wall" id="grid"></div>
+
+        <div class="studio">
+          <div>
+            <h2>Find me elsewhere</h2>
+            <p>
+              Updates, new releases, and the odd sketch. Say hi anywhere below.
+            </p>
+          </div>
+          <div class="links">
+            <a
+              href="https://www.threads.com/@pink.yussp"
+              target="_blank"
+              rel="noopener"
+              >Threads <span>@pink.yussp</span></a
+            >
+            <a
+              href="https://discord.com/users/1244917548898717779"
+              target="_blank"
+              rel="noopener"
+              >Discord <span>Message me</span></a
+            >
+            <a
+              href="https://buy.polar.sh/polar_cl_KPKiCnQm4KAfPqWdcGHcPgN1EF3Or1W3uQLJB2nxoRD"
+              target="_blank"
+              rel="noopener"
+              >Leave a tip <span>Donate</span></a
+            >
+          </div>
+        </div>
       </section>
 
       <section id="product" hidden>
-        <a class="back" href="#/">← Back to shop</a>
-        <div class="detail">
-          <div class="gallery" id="gallery"></div>
-          <div>
-            <span class="eyebrow">Cursor set</span>
-            <h1>Bunni Cursor Set</h1>
+        <a class="back" href="#/">← Back to the shop</a>
+        <div class="spread">
+          <div class="sheet" id="gallery"></div>
+          <div class="info">
+            <p class="label kicker">Cursor set · No. 01</p>
+            <h1 class="pname">Bunni Cursor Set</h1>
             <p class="lead">
-              A white, cute bunni cursor set for Windows. It includes 17 cursors
-              covering normal select, busy, text, links, resize, move, and more.
+              A white, cute bunni cursor set for Windows. Seventeen cursors
+              cover normal select, busy, text, links, resize, move and more.
             </p>
-            <div class="buy">
-              <span class="price" id="price"></span>
+            <div class="buy-row">
+              <span class="big-price" id="price"></span>
               <a
-                class="btn"
+                class="buy"
                 href="https://buy.polar.sh/polar_cl_ML93JWrPfWwIgXpCfBZo8FMG8SOGdUe7SPOId3xttvU"
                 >Buy now</a
               >
             </div>
-            <ul class="perks">
-              <li>17 cursor files (.cur and .ani)</li>
-              <li>Windows cursor scheme with an install file</li>
-              <li>Made by yurilover, released to the public domain</li>
+            <ul class="specs">
+              <li>
+                <span>Included</span><span>17 cursor files (.cur, .ani)</span>
+              </li>
+              <li>
+                <span>Format</span><span>Windows scheme with an installer</span>
+              </li>
+              <li><span>Artist</span><span>yurilover</span></li>
+              <li><span>License</span><span>Public domain</span></li>
             </ul>
-            <div class="steps">
-              <h3>How to install</h3>
-              <ol>
+            <div class="install">
+              <h2>Installing</h2>
+              <ol class="timeline" id="steps">
+                <li><strong>Unzip</strong> the download.</li>
                 <li>
-                  <span><strong>Unzip</strong> the download.</span>
+                  Right-click <strong>install.inf</strong> and choose
+                  <strong>Install</strong>.
                 </li>
                 <li>
-                  <span
-                    >Right-click <strong>install.inf</strong> and choose
-                    <strong>Install</strong>.</span
-                  >
-                </li>
-                <li>
-                  <span
-                    >Open Settings, search for <strong>Mouse cursor</strong>,
-                    pick <strong>Lana</strong>, and click Apply.</span
-                  >
+                  Open Settings, search <strong>Mouse cursor</strong>, pick
+                  <strong>Lana</strong>, and click Apply.
                 </li>
               </ol>
             </div>
           </div>
         </div>
       </section>
-    </main>
 
-    <footer>Made with ♥ by pinkyussp</footer>
+      <footer class="foot">
+        <span>© pinkyussp</span>
+        <span>Made by hand, sold by download.</span>
+      </footer>
+    </div>
 
     <script>
       const IMG = {
@@ -521,14 +850,29 @@
           "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAACNUlEQVR4nO3dS26bUBQGYPqSInUBXQhD1uEsMl4HQxaSeVV50KadwlUKdpMKc/7vm6FgcrF+n3N52HQdAAAAkOLD3gPYQbvPv3cZxZ34uPcA2JcAhBOAcAlzgHYfX25cvzQVIJwAhBOAcBX73WrPH8dx9cXDMGxtrxQVIJwAhBOAcBX62009v+/71Y1N07RYrj4nUAHCCUA4AQhXoZ8truff2vO3VJ8TqADhBCCcAIQTgHACEE4AwglAuEMfw/7F6n3+l8tl9cUPDw9b228/NIf+XoEKEE4AwglAuM97D+A/eO/v/pXq+S0VIJwAhBOAcBXnAF/eeXulen5LBQgnAOEEIFzFawFbtnr61oei1JxABQgnAOEEAAAAAAAAAACgmMR7Aj03cMYdQeEEIJwAAAAAAAAAFFbxfoCt3/Z96daV/m3glquB4QQgnACEKzcH+NZ1X+fLz133fb78D88MKvcezakA4QQgnACEK/e8gOeu+7H3GI5EBQgnAOEEIFyFOUB7nL51rv9W7bWAUucFVIBwAhBOAMJV6GeLHj2O4+KPfd+/aePTNC2Wh2FoVzn0e6gChBOAcAIQTgDCCUA4AQgnAOEOfy3g6XRa7MMwDD/ny7eeF9g67m//3+P5fO1Q75IKEE4AwglAuEOfx37N0+n0ab78eD6vzglaV/T8X28b4X1RAcIJQDgBCFduDtDamhO8sn7pnt9SAcIJQDgBCFd+DnCF6GcIqQDhBCCcAAAAAACE+APqT1KRLvZ6tgAAAABJRU5ErkJggg==",
       };
       document.getElementById("avatarImg").src = IMG["avatar.png"];
+      const reduce = window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+      ).matches;
 
       const PRODUCTS = [
         {
           slug: "bunni-cursor",
           name: "Bunni Cursor Set",
-          blurb: "White, cute bunni cursors for Windows. 17 pieces.",
+          blurb: "White, cute bunni cursors for Windows. Seventeen pieces.",
           price: "$5.99",
-          fan: ["normal-select.png", "busy.png", "link-select.png"],
+          tint: "var(--rose)",
+          cycle: [
+            "normal-select.png",
+            "busy.png",
+            "link-select.png",
+            "help-select.png",
+            "handwriting.png",
+            "move.png",
+            "text-select.png",
+            "unavailable.png",
+            "horizontal-resize.png",
+            "precision-select.png",
+          ],
           gallery: [
             ["normal-select.png", "Normal"],
             ["normal-select-2.png", "Normal 2"],
@@ -555,36 +899,54 @@
       const shop = document.getElementById("shop");
       const product = document.getElementById("product");
       document.getElementById("count").textContent =
-        PRODUCTS.length + (PRODUCTS.length === 1 ? " item" : " items");
+        PRODUCTS.length + (PRODUCTS.length === 1 ? " piece" : " pieces");
 
-      const tilts = [-14, 0, 14];
+      const timers = [];
       for (const p of PRODUCTS) {
         const a = document.createElement("a");
-        a.className = "card";
+        a.className = "frame-link reveal";
         a.href = "#/" + p.slug;
-        const fan = p.fan
-          .map(
-            (f, i) =>
-              '<img alt="" src="' +
-              IMG[f] +
-              '" style="--r:' +
-              tilts[i] +
-              "deg;left:" +
-              (50 + (i - 1) * 26) +
-              "%;z-index:" +
-              (i === 1 ? 2 : 1) +
-              '">',
-          )
-          .join("");
         a.innerHTML =
-          '<div class="thumb"><div class="fan">' +
-          fan +
-          "</div></div>" +
-          '<div class="info"><h3></h3><p></p><div class="row"><span class="price"></span><span class="view">View →</span></div></div>';
-        a.querySelector("h3").textContent = p.name;
-        a.querySelector("p").textContent = p.blurb;
+          '<div class="frame"><div class="mat"><img alt="" class="cycler"></div></div>' +
+          '<div class="caption"><div><h3 class="ptitle"></h3><p class="pdesc"></p></div><span class="price"></span></div>' +
+          '<div class="meta-row"><span>17 cursors</span><span>Windows</span><span class="view">View</span></div>';
+        a.querySelector(".ptitle").textContent = p.name;
+        a.querySelector(".pdesc").textContent = p.blurb;
         a.querySelector(".price").textContent = p.price;
+        a.querySelector(".mat").style.background = p.tint;
+        const img = a.querySelector(".cycler");
+        img.src = IMG[p.cycle[0]];
+        if (!reduce) {
+          let i = 0;
+          timers.push(
+            setInterval(() => {
+              img.classList.add("swap");
+              setTimeout(() => {
+                i = (i + 1) % p.cycle.length;
+                img.src = IMG[p.cycle[i]];
+                img.classList.remove("swap");
+              }, 450);
+            }, 2200),
+          );
+        }
         grid.appendChild(a);
+      }
+
+      const io = new IntersectionObserver(
+        (entries) => {
+          for (const e of entries)
+            if (e.isIntersecting) {
+              e.target.classList.add("in");
+              io.unobserve(e.target);
+            }
+        },
+        { threshold: 0.12 },
+      );
+
+      function observeReveals() {
+        document
+          .querySelectorAll("#shop .reveal")
+          .forEach((el) => io.observe(el));
       }
 
       function route() {
@@ -593,17 +955,20 @@
         if (!p) {
           shop.hidden = false;
           product.hidden = true;
-          document.title = "pinkyussp shop";
+          document.title = "pinkyussp";
+          observeReveals();
           return;
         }
         shop.hidden = true;
         product.hidden = false;
-        document.title = p.name + " · pinkyussp shop";
+        document.title = p.name + " · pinkyussp";
         document.getElementById("price").textContent = p.price;
         const gal = document.getElementById("gallery");
         gal.innerHTML = "";
-        for (const [file, label] of p.gallery) {
+        p.gallery.forEach(([file, label], i) => {
           const f = document.createElement("figure");
+          f.className = "plate";
+          f.style.animationDelay = i * 35 + "ms";
           f.innerHTML =
             '<img alt="' +
             label +
@@ -612,7 +977,11 @@
             '"><figcaption></figcaption>';
           f.querySelector("figcaption").textContent = label;
           gal.appendChild(f);
-        }
+        });
+        const steps = document.querySelectorAll("#steps li");
+        steps.forEach((li, i) =>
+          setTimeout(() => li.classList.add("on"), reduce ? 0 : 300 + i * 220),
+        );
         window.scrollTo(0, 0);
       }
       window.addEventListener("hashchange", route);
