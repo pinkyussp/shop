@@ -762,43 +762,24 @@
         <div class="spread">
           <div class="sheet" id="gallery"></div>
           <div class="info">
-            <p class="label kicker">Cursor set · No. 01</p>
-            <h1 class="pname">Bunni Cursor Set</h1>
-            <p class="lead">
-              A white, cute bunni cursor set for Windows. Seventeen cursors
-              cover normal select, busy, text, links, resize, move and more.
-            </p>
+            <p class="label kicker" id="kicker"></p>
+            <h1 class="pname" id="pname"></h1>
+            <p class="lead" id="lead"></p>
             <div class="buy-row">
               <span class="big-price" id="price"></span>
-              <a
-                class="buy"
-                href="https://buy.polar.sh/polar_cl_ML93JWrPfWwIgXpCfBZo8FMG8SOGdUe7SPOId3xttvU"
-                >Buy now</a
-              >
+              <a class="buy" id="buy" href="#">Buy now</a>
             </div>
             <ul class="specs">
-              <li>
-                <span>Included</span><span>17 cursor files (.cur, .ani)</span>
-              </li>
+              <li><span>Included</span><span id="spec-count"></span></li>
               <li>
                 <span>Format</span><span>Windows scheme with an installer</span>
               </li>
-              <li><span>Artist</span><span>pinkyussp</span></li>
-              <li><span>License</span><span>Public domain</span></li>
+              <li><span>Artist</span><span id="spec-artist"></span></li>
+              <li><span>License</span><span id="spec-license"></span></li>
             </ul>
             <div class="install">
               <h2>Installing</h2>
-              <ol class="timeline" id="steps">
-                <li><strong>Unzip</strong> the download.</li>
-                <li>
-                  Right-click <strong>install.inf</strong> and choose
-                  <strong>Install</strong>.
-                </li>
-                <li>
-                  Open Settings, search <strong>Mouse cursor</strong>, pick
-                  <strong>Lana</strong>, and click Apply.
-                </li>
-              </ol>
+              <ol class="timeline" id="steps"></ol>
             </div>
           </div>
         </div>
@@ -848,6 +829,36 @@
           "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAE4UlEQVR4nO3dz2sdVRwF8DMvb95LTJqWxEIRg4tKqBs3BmwJdFPdlAomCrpqlQYFwWWhf4IguOmiUI2lLYiF2lYoXSl2kwituq4N6MYfxbYpNbYhvnkdl97vSZjr+IZkHt/z2Z3MmzuT8OXOnfvuTAARERERERERERERERERERERERERERERERERERHpJwmAfBOOITXV2OoTkK2lAnBOBeDcujHAwsJCpQeYnp7e6JhSE+oBnFMBOKcCcK4Z+8DU1NRmnIdsEfUAzqkAnFMBOBcdA5TVbrf5R7rvrzH1AM6pAJxTAThX+RhgbW3N5Ha7zesNNCaoEfUAzqkAnFMBOFd6DMD3+XzNl/6iHsA5FYBzKgDnNronjz0nwEXz+H8cQ2pCPYBzKgDnVAAiIiIiDvXdPXqWZaXeZ9BsNiv9HTuLi+b4yenTZnty7ZrdYWnpUaTJXyh/E4YuMB/mFnAjfpb/ne4CnFMBOKcCcK52Y4BOp1N4jU/TtGx7vH/h73wf2BHmbbOz98PcuHix1PGrlgMXwvwAmAvzGPCgTHvqAZxTATinAnCu9mMAvubzNT0mtv+jNH0yzCOTk3fDnNy6ZT6fJ/Qno/cndE+cMHl8716Tl5eXbXtjY6aBAeBNewC8a84H2Gb2B34M81+AeSnTduAeCqgHcE4F4JwKwLnKnw3cbN8dPdrT/iPA+TDzNZ9HHGlO0xQ37NR84+RJk1do/2R01LYHfE8fMXkVMA22gEumPeD5MI8An1N7L6OAegDnVADOqQCc6/sxQGlXrpiYAAfCnO/cabZ/fOeOye9Fmm+cOWPyPG3PeQwRMQT8FOaHwMEwDwI/hDkBXgpzBzgU5hQwfwD1AM6pAJxTATjnbgzw5cyMybO0/Thd8z+k7e8cfM3k5tUvCo/3NuXHc3P8Ef4+pnCQMAz8GuYM+Iga+yDMDeAtakJjAPmXCsA5FYBzfb8eIPZdwL6zZ03u7tplcnL7tsnZzZsmt/bsMfnbw4dNfuHuQ5NjYwKWA+bBggGAf6HCMcEq8GyY28AS7fw7tf9UmNUDOKcCcE4F4FztxwCs1zWCjaEhk5MsMzlbsd/gJ4ODhe3x3P65VstkngeIKTsm+BkwJ/gMsEof/pvaMy96VA/gnArAORWAc7UbA7CqnxNoTEyYHJsHSHbvLtU+n1925Ig9Pq0XiImNCVYBc4KaB5BSVADOqQCcq916gKqv+SynZ/WSy5dt5uf/jx0r1T6fX7PHMUFCUwld2s7PBm5gsWijegDnVADOqQCcq908QK/rAfj7/3XtXzKP1mGA1gjycwETtEbwN2qP1wdMzdsnAWLn30hTc5/P1/yYHDALEhJgOMxd4BVzPloTKCEVgHMqAOdqNw8Q0+v7AHDIPCqHr2nzAbrmX6XtMygWO7+E3jHEc/t8nx8bE/A1Pwe+CjNf85l6AOdUAM6pAJyr3TwAi80L8H044/tylt+zr9Eb2L/f5HXvCXxi2OZX3zD5xc8+tedH7f85Pr49zKPApDk+YBsE3jfnQ2v6cuCPMK8Az4V5B2BfTEjUAzinAnBOBeBc7ccALDYm6NUo5U8ov17p0crT/wuQSqkAnFMBONd3YwAWe5awavn16ybzmr7k1Cleo/d0pMnY/w00Ewv6v4FSKRWAcyoAEREREREREREn/gHUmi4qzNBYiwAAAABJRU5ErkJggg==",
         "vertical-resize.png":
           "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAACNUlEQVR4nO3dS26bUBQGYPqSInUBXQhD1uEsMl4HQxaSeVV50KadwlUKdpMKc/7vm6FgcrF+n3N52HQdAAAAkOLD3gPYQbvPv3cZxZ34uPcA2JcAhBOAcAlzgHYfX25cvzQVIJwAhBOAcBX73WrPH8dx9cXDMGxtrxQVIJwAhBOAcBX62009v+/71Y1N07RYrj4nUAHCCUA4AQhXoZ8truff2vO3VJ8TqADhBCCcAIQTgHACEE4AwglAuEMfw/7F6n3+l8tl9cUPDw9b228/NIf+XoEKEE4AwglAuM97D+A/eO/v/pXq+S0VIJwAhBOAcBXnAF/eeXulen5LBQgnAOEEIFzFawFbtnr61oei1JxABQgnAOEEAAAAAAAAAACgmMR7Aj03cMYdQeEEIJwAAAAAAAAAFFbxfoCt3/Z96daV/m3glquB4QQgnACEKzcH+NZ1X+fLz133fb78D88MKvcezakA4QQgnACEK/e8gOeu+7H3GI5EBQgnAOEEIFyFOUB7nL51rv9W7bWAUucFVIBwAhBOAMJV6GeLHj2O4+KPfd+/aePTNC2Wh2FoVzn0e6gChBOAcAIQTgDCCUA4AQgnAOEOfy3g6XRa7MMwDD/ny7eeF9g67m//3+P5fO1Q75IKEE4AwglAuEOfx37N0+n0ab78eD6vzglaV/T8X28b4X1RAcIJQDgBCFduDtDamhO8sn7pnt9SAcIJQDgBCFd+DnCF6GcIqQDhBCCcAAAAAACE+APqT1KRLvZ6tgAAAABJRU5ErkJggg==",
+        "hornet-normal.png":
+          "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAACBUlEQVR42u3dTW7CMBAG0FB1xR1YoFyFY3ORLlj1DtnSHbKqutjETmz83qpC4a+Mvsk4gUwTAAAAAAAAAAAAAAAAANCTw9ZPeDwe76/ed1mWg4+srA//AgXAwD73fPLb7fZ0m3mefUoSAAXA+7WA3DYxz/PddCABUACUsutCUMoUkDsdaAcSAAVAFy0gZc9/TWuo0Q7C1x8+fux2CYACoF2bLwTF4nHNYeIW2lZKm5AAKAAGnwJyYzY2EdReCApfz/V6fdx+uVymZ1PAr+MXVacSCYACoKMpIGU6yN3r/lqWx9+nCrF/Pp9ffszY4exW2oEE0AIwBTQs1g7CCP2epj+3OWW+v1J78j1NBBJAC8AU0LDaURnb86+hxYlAAmgBaAGdC/f2YxNBijULPhIABUB/3uIc+tyFoJQ1/1KLNinfg9hzgUgCaAGYAgaIfSQACoCuW0CN2B9x8UcCoADopAXUONun9mHfXHseJpYAWgBaQMP2WthZE8ulfgdJAqAAGLwFtLyXnrK9BEABoAU0pdS3fSUACoC+DXn2TMq3d0vFfspjOikULQBTQLPCiH63K51JAC0ABYACQAFgChhDuNgSHt5NWRRao8WfjJMAWgBaAP/G9Zb3lQAoALbjxxQCuZetSdH6NY4lgBaAFsBLrSGFC0eiBQAAAAAAAAAAAAAAAACF/QAxg9o7swCnsgAAAABJRU5ErkJggg==",
+        "hornet-busy.png":
+          "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAACBUlEQVR42u3dTW7CMBAG0FB1xR1YoFyFY3ORLlj1DtnSHbKqutjETmz83qpC4a+Mvsk4gUwTAAAAAAAAAAAAAAAAANCTw9ZPeDwe76/ed1mWg4+srA//AgXAwD73fPLb7fZ0m3mefUoSAAXA+7WA3DYxz/PddCABUACUsutCUMoUkDsdaAcSAAVAFy0gZc9/TWuo0Q7C1x8+fux2CYACoF2bLwTF4nHNYeIW2lZKm5AAKAAGnwJyYzY2EdReCApfz/V6fdx+uVymZ1PAr+MXVacSCYACoKMpIGU6yN3r/lqWx9+nCrF/Pp9ffszY4exW2oEE0AIwBTQs1g7CCP2epj+3OWW+v1J78j1NBBJAC8AU0LDaURnb86+hxYlAAmgBaAGdC/f2YxNBijULPhIABUB/3uIc+tyFoJQ1/1KLNinfg9hzgUgCaAGYAgaIfSQACoCuW0CN2B9x8UcCoADopAXUONun9mHfXHseJpYAWgBaQMP2WthZE8ulfgdJAqAAGLwFtLyXnrK9BEABoAU0pdS3fSUACoC+DXn2TMq3d0vFfspjOikULQBTQLPCiH63K51JAC0ABYACQAFgChhDuNgSHt5NWRRao8WfjJMAWgBaAP/G9Zb3lQAoALbjxxQCuZetSdH6NY4lgBaAFsBLrSGFC0eiBQAAAAAAAAAAAAAAAACF/QAxg9o7swCnsgAAAABJRU5ErkJggg==",
+        "hornet-working.png":
+          "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAACBUlEQVR42u3dPW7CQBAGUBOl4g4UyFfh2FwkBVXu4JZ0aJVkxS72mln7vSpC5i+MvvGsDR4GAAAAAAAAAAAAAAAAAAAAAAAAwjms8STH4/H+6n2naTr4mNr58C9QAOzY59pPeLvdnm4zjqNPRgKgANheC6htE+M43k0HEgAFQAurLwSVTAG104F2IAFQAHTRAkr2/Oe0hhbtIH396ePnbpcAKAD6sMpCUC4e5xwmjtC2StqEBEABsPMpoDZmcxNB64Wg9PVcr9fH7ZfLZXg2Bfw6ftF0KpEAKAA6mgJKpoPave6vaXr8fWoQ++fz+eXHzB3OjtgOJIAWgCkgmFw7SCP0exj+3eZU+Z6W2pPvdSKQAFoApoBgWkdlbs+/hegTgQTQAtACOpTu7ecmghJzFnwkAAqAvnV7Pn3tQlDJmv9SizYl34OIskAkAbQATAEbjX0kAAqArltAi9jf++KPBEABELgFtDjbp/Vh31pRDhNLAC0ALSCYdy3szInlpX4HSQKgANh5C4i8l16yvQRAAaAFhLLUt30lAAqA7djNmTQl395dKvZLHtNJoWgBmALCSiN6y1c6kwBaAAoABYACwBSwXeliS3p4t2RRaI7oPxknAbQAtAD+xPWa95UAKADeY/c/rFB72ZoSPV3jWAJoAWgBFLeGEi4ciRYAAAAAAAAAAMB7/AC+FNo7K+7brwAAAABJRU5ErkJggg==",
+        "hornet-alternate.png":
+          "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAACA0lEQVR42u3dO27CQBQFUBOl8h4oEAUbYdlshSp7oE2qoKckEwZ5xn4251QoAoKSp3s9/jEMAAAAAAAAAAAAAAAArNIu+wccx/Hz+/Htdtv5l7X15k9gAFABeWO/RB1IAAwAm6mAUuxfr9f74+PxqA4kAAaAbVRAKfYvl8v98eFwePg+sRrUgQTAAJC2AlrFvjqQABgApnpf8pe3iv2lKixWzFoPW0sAFYBVQII4Lak5FhD1iN/S5yxVQO/PIwEwAGxgFVCKxwxnBMXPEFcr5/P54Wt/1Fbq1YEEUAGoAP6N/Sk7qbLXgQRQAagAfomxX3OIOf48Rn2sAAmAAUAFrGLLv4eMKwIJoAJQAQl8DMM9Ek8JtvwlAAaA7UtzeDJWQHQaxz+fP2XLuWaff6vrC+LvKu0UWvJaBgmgArAKSGAf6ijWgcu7JAAGgM1XQGkV0Nsr7vyRABgAklVAb3Me9n3WkoeJJYAKQAXQNJZr9v9LAAwAKmDVdVDzfAmAAUAFPGXf+UylVlf7SgAMAOuW8qTQ3hVQ2lFTug3dlNiveU8nhaICePFVwD7x9xjHiK6pg5o7mkoADAAGAAOAAcAqYE41t3TrsSWfZeePBMAA8MIV8Gxcz/laCYABYD5uvhCUvqqmx+Fg3xeACkAFrLoaavjiSFQAAAAAAAAAAAAAAAAA0NgXqerTcqhW3S0AAAAASUVORK5CYII=",
+        "hornet-link.png":
+          "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAABMElEQVR42u3cQY6CQBBAURCuwQk5DyfkHAS3He1OICyAqvfWphP1TxUqma4DAAAAAAAAAKLpEz3X3Wvw7+NvIDcBWAE5xv6yLNUHzPOceh2YAFYAVkCCFbBtW/UBwzBYAVgBCAABIAAEgAAQACmMQZ7H7q00ARAAmVbA2e/5r6yS3gRAAFgB4bTWx88q2aOuAxPACsAKeKG1cbVfjvQj490EQAAIAAEgAASAABAAAkAACAABIAAEQEwh7gg68tPwWeU55fmTCYAACCPEDY5r437+6dqZXeNMN4UiAKyA162D/o5zTAAEgAAQAALgcUYvQV15tb8G/h9EJoAVgAAQAALAp4C4V/KYAAiAVCvAKjEBEAACQAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgQb6/CiiQ8qka4AAAAABJRU5ErkJggg==",
+        "hornet-help.png":
+          "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAACRElEQVR42u3dMW7CMBQG4LbqxB06oFwlx+YiHZh6h6x0Q1ZVg4Pj5MX5vqkDRS08/X/shPD2BgAAAAAAAAAAAAAAAAAAAADE9e4lWM/pdLq9+rvTNDV5rz68LcdmAFRAf7EWNfYvl8vLzzOOY5PXTQKoAI7sc8knu16vTx8zDINX/U+k59RUhgTAALByBcytiWEYbr2vDtL/ZRzH27P/sWZVJQEwAASvgAd18G8M9loHW8a+BMAA0KACcps8JRtEucekK4UWdZCrm9Y1tNQ5AgmAAWDDCoh4ZDsnfmtqooXcOQJXBKECCL4KKFkdPDjabxp9uaPuktOyufMXretgjU0wCaACUAGN42vuUff3NN1//moQ++fz+eXnXKoO5p4mlgAYAHa6CkhjrfAqoPtjfpKfvyo+x5DGfrriyEVu7m8uOa8hATAAqICnddDCmqdZa1YEDzamVl0RSAAVgAoIJj3aT1cBNUf+0dgIQgWwvZDX3OdiP7cRVLLnX7L5M3eVUXJqO/rnGiSACsAqYIexjwTAALDrCmgR+5E3fyQABoCDV8BSsR/l07X/2epzBBIAA0DwCthqY2epq3dcFIoBQAXsWsndSnOPlwAYAFRAKEt92lcCYAA4li6utslt1NTcuTSn5DldFIoKwCogrJLb1pXEvgTAAGAAMAAYAKwCtlJyS7cWR/J73fyRABgAOqqAuXG95u9KAAwAcXV984Xc9xS0OB281+84lgAqABVwMDVfatnT19lLAAwAAAAAAAAAAEBvfgErAhX4wU+yXgAAAABJRU5ErkJggg==",
+        "hornet-handwriting.png":
+          "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAABP0lEQVR42u3cOxLCIBQFULRkD9buJQvOXqzdA612Dk1GYj6AnFObSXCu7zoYEwIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUMelp4uNMb5+PTalVH2tzxA+139r5L2/+gyMTQBUQJ8jfZ7nVa+fpum0OshHfYmadWACqABUQKVRv3aM72WvOlga9fcYvx77SKmJOjABVAAq4E9H/RF1UDL2S9abnzevAxWACqCjCuhx7C+N4i22rPfMTSoTAAFAABAABAAbQXt9A8/XbiMIFcCAFdBLNRy98VJyp1N+3po3i5oAKgAVUMm/3hRaYulnZRWACmCQCjizMloY+yoAFYAKGFbJX8ZUACoAAUAAEAAEAAFAADiKjaBKWnlknAmgAhAABAABQAAQAAQAAUAAEAAAAAAAAAAAAAAAAAAAAACgBW9fFWJcDiVH/AAAAABJRU5ErkJggg==",
+        "hornet-text.png":
+          "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAABoElEQVR42u3dS26DMBQFUFJlxC4QW2HZbIVtME1HjaxIpC445rmcM6pQg6r06V7sfOg6AAAAAAAAAAAAAAAAmnSL/gf2ff/4+Xld15t/WVlfngIDgAqIG/vLsjyPj+PYqQMJgAGglLunoPwKpaWViwRQAagAdsX+kZqQABgAVEBzsT/P8/P4NE2/PvZlIytcHUgAFYAKIDv2h2HYfc6IdSABVAAqgLfS2M95STo9nkZ9WgESAAOACmjiyv8ToqwIJIAKQAXw9spfAmAAUAGXvfI/8nmEnE2hM1cEEkAFYAAwABgArAKu7SqbPxIAA8CFK6Dmy75/VXtTSAKoAFQAH4vlre87kgAYAFTAv6mDnN+XABgAVEAopT7tKwEwAKiAJuS8UTN9I2ip2M85Z+0vxJYAKgAVwK4Yz6mDrdiXABgADAAGAAOAVcBZjmwKHRHlbmgSQAWgAsiO65qPlQAYAFTA6SuCUpG+tZpwvwBUACogbB28xPij9DklAAYAFdB0NUgADADtCR9n0W+/LgEwAAAAAAAAAAAAAAAAAAAA1PENzZa05E2CNmUAAAAASUVORK5CYII=",
+        "hornet-precision.png":
+          "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAABJElEQVR42u3dMQ6CMBSA4Wqceg0Hr8HMgTtzDQev0VUnCQ4mxkAofd83ERITQn77AmJICQAAAAAAAAAAAAAAgEM6RT8BOefne7vWGu58nH0HYhOAERB72S+lzPvHcUzRxoEVwAhAAAgAASAABIAAEAACQAAIAAEgAASAABAAAkAACIA+hH8o9F7rvP+W87ztoVCMAPp3aX2J7vUYWhkxVgAjAFcBjS37y79rreU6DH9/9jFNqx9PK39DswIYARgBga8Cvt0I2pqrAIwA9tfkjaCtl8dfRozfAjACMAK693GTZ3FzxgqAABAAAkAACAABIAAEgAAQAAJAAAgAASAABIAAEAAC4Ei8O9i7gzECAAAAAAAAAAAAAAAAAAAAAAAAAADY3QspkTZw3tVC4AAAAABJRU5ErkJggg==",
+        "hornet-unavailable.png":
+          "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAACh0lEQVR42u3dP07zMBwG4PCpU27AwFBl4CI9di/C0OkbuEEmpLKhH4NVG9v51+eZUFVKVaz3je0mGQYAAAAAAAAAAAAAAAAAYE9eWr7YOI73v/7uPM8v/h3L++cjMAB4YqdeL3y73R4+Z5om/wEJgAHA8SqgtCamabqbHUgADACW1G0hKGcWUDo7UAcSAAOAXVRAzpF/TTX0qIP4/uPrpx6XABgA7FvThaBUPNZsE/dW+t7i8z/mucl7eGtcxRIAA4AVZgGlMZuaEfReCIrv53q9/jx+uVyGR7OAVrG/lTqQACoAs4DOUnGaI0buW4fYP5/PRe8h5X0ci6rq/zDcHz2+RB1IABWAWcBKUnUQIzQVlaXxmNqqTu0vpP7ur/78/Hz4Ojly/lavOpAAKgCzgJX03lpNHfnXRHH09fr68/Ptdx0UbR/HeF96diABVABmATtRGoM5X1KNMV4T0VHpotCaswMJoAIwC9hJ7Lc68o+LNh+F0ZpTB3Hv4L3iC6Wl1SMBMAA4QAW0Wv/vLR7tp7aMW21nSwAMAA5cAT1iP+fbPs0+yLAXkFpcWvrbPhIAA4ANV0CPb/vkbPuqAwmAAcDqFbBW9MWt4dKILr0OUk0d9Fr/lwAYAGygAjbxARRG9KniGkc5ewdLnyMgAVQAKuBAatb/c+ogPh6fXzMDcmoYKoB1HO7iyzlnAUc5izk55w7EI/xWZx+7QAQqABXQtQJ61EENl4lDBbCck4+gTM56/tZjXwJgAHDQCoiLLfFaPaUzgtI6yFn8kQAYAKiA1dXcuazmdyUABgDb8jT34i29bU2OI9zjWAKoAFTAE6u5qeUR7iMsAVQAAAAAAAAAAAAAAAAAsDvfej0UqPujYZQAAAAASUVORK5CYII=",
+        "hornet-move.png":
+          "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAABHklEQVR42u3dOw7CMBQEQEPpi3D/43ARt9C6SAok5N/OlIgm0WNXjkNSCgAAAAAAAAAAAAAAAFt6JB50rfVz9XlrLe58PP0GshkAFZAX++/WLr/zqjWuDiSACkAFBMf+nZQ6kAAqAAOAAcAAYBWQvSJwIQgVgAqIqoOe7WBUAAAAAAAAAOeYuv2Zti274vHaDQxnAFTAvBicdXPmyChe/WZUCaACUAELxP6df8XjyCje6V/JEkAFYAAwABgArALWWBG4ECQBMAAcWQGzongFtoNRAQAAAAAAAIzjYdEdD4umGABUwOmx75UxEgADwPEV4N3BEgADgAHAAGAASFsF/LoicCEIFYAKiKqDnu1gVAAAAAAAAAAAAAAAAACwgS/2YoNe575qoQAAAABJRU5ErkJggg==",
+        "hornet-horizontal.png":
+          "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAAv0lEQVR42u3ZPQ5AQBAGUJRzEfc/jotMS6sgUdidDe+VImHl842faQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKChufLgEbFfbc/M+YsXe8T1Lu6BfxMAI6CuBrfMy33WiKb12LOKR1ivBkAAKBwBT2rwzlv12LOKR1ivBkAAEAAEAAGg9i2g6mn8yTmc+RCEEYARUDIOWlfxCPwOxggAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAHzkAKyxJINiT1ZQAAAAASUVORK5CYII=",
+        "hornet-vertical.png":
+          "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAA8UlEQVR42u3dMQ7CMBAEQCflfST/f04+ci20LkxBae9MGdGAllvZcZQxAAAAAAAAAAAAAAAA2NKV+KWr6rO63t1xv8ftP5BNAFRA3th/u5efeari6sAEUAGogOCx/0tKHZgAKgABQAAQAKwCslcENoJQAaiAqDqYuR2MCgAAAAAAAAAAtudE0MSJIIYAoAJOH/ueCzABEAAEAAEQAKwC0tgIMgEQAAAAAAAAAAA4lhNBEyeCGAKACjh97Hs0zARAADi+Arw72ARAABAABAABIG0V8O+KwEYQKgAVEFUHM7eDUQEAAAAAAAAAAAAAAADABr5XwUlUgQR0JgAAAABJRU5ErkJggg==",
+        "hornet-diagonal-1.png":
+          "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAABAUlEQVR42u3cMRLCMAwEwIRSH+H/z8lH1ELrIulssK3dkqEKN7pYyXAcAAAAAAAAAAAAAAAAAAAALOB0CfqLiM/d55k53fV++blqEwAVQO+xf2XefucdMV0dmAAqABXAsLH/ZJY6MAFUAAKAACAAOAUw8kRgEYQKQAWUqoOWx8GoAAAAAADgD0o+C1hpVz+aVXBxAqAC6o39ld7YMQEQAAQAAUAAcArofSJoWQShAgAAAACADU25+7ar/x2rYAFABUw29r20aQIgAGxfATv8374JgAAgAAgAAoBTwMgTgTt/EwABYMsKeKqDlrFvAiAAAAAAAAAAAAAAAAAAAAAAUM4XV8FJVI9Za6cAAAAASUVORK5CYII=",
+        "hornet-diagonal-2.png":
+          "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAABBUlEQVR42u3cMYrDMBAFUDvlXCT3P04uMq1TxoUFEVgged4rwxZh8/l/JYfdNgAAAAAAAAAAAAAAAAAAABawz/imIuK4ej0zdx/ZvV5+BQKACZir9j+Zlz/zjjAHGgAB4BkT8E/tt5gDDYAAIAAIAALAiqeA3hOBv/w1AALAIyegNQdnal8DIAAAAAAAQLeSd+ueNfy4Ci5OAExAvdr3jSMNgAAgAAiAAOAUUI2LIA2AAAAAAABAIf7hwgArPWtwFVycAJgA7q79lb50qgFMACaAYbXfMsscaAATgAAgAAgATgGMPBG4CMIEYAJKzcGZx8GYAAAAAAAAAAAAAAAAAAAAAKDbF1fBSVQUn8TMAAAAAElFTkSuQmCC",
       };
       document.getElementById("avatarImg").src = IMG["avatar.png"];
       const reduce = window.matchMedia(
@@ -858,6 +869,17 @@
         {
           slug: "bunni-cursor",
           name: "Bunni Cursor Set",
+          kicker: "Cursor set · No. 01",
+          lead: "A white, cute bunni cursor set for Windows. Seventeen cursors cover normal select, busy, text, links, resize, move and more.",
+          buy: "https://buy.polar.sh/polar_cl_ML93JWrPfWwIgXpCfBZo8FMG8SOGdUe7SPOId3xttvU",
+          count: 17,
+          artist: "pinkyussp",
+          license: "Public domain",
+          steps: [
+            "<strong>Unzip</strong> the download.",
+            "Right-click <strong>install.inf</strong> and choose <strong>Install</strong>.",
+            "Open Settings, search <strong>Mouse cursor</strong>, pick <strong>Lana</strong>, and click Apply.",
+          ],
           blurb: "White, cute bunni cursors for Windows. Seventeen pieces.",
           price: "$5.99",
           tint: "var(--rose)",
@@ -893,6 +915,54 @@
             ["diagonal-resize-2.png", "Diagonal 2"],
           ],
         },
+        {
+          slug: "hornet-cursor",
+          name: "Hornet Cursor Set",
+          kicker: "Cursor set · No. 02",
+          blurb: "Hornet's needle as a Windows cursor set. Fifteen pieces.",
+          lead: "A Windows cursor set built around Hornet's needle from Hollow Knight: Silksong. Every cursor is redesigned around the weapon while the set stays clean enough for everyday use. Unofficial fan-made set, not affiliated with or endorsed by Team Cherry.",
+          price: "$5.99",
+          // buy: "https://buy.polar.sh/...", // add the Polar checkout link here; the Buy button is hidden until then
+          tint: "var(--lilac)",
+          count: 15,
+          artist: "Lana",
+          license: "Free for personal use",
+          steps: [
+            "<strong>Unzip</strong> the download.",
+            "Right-click <strong>install.inf</strong> and choose <strong>Install</strong>.",
+            "Open <strong>Mouse Properties</strong> and go to the <strong>Pointers</strong> tab.",
+            "Select the <strong>Hornet</strong> scheme and click <strong>Apply</strong>.",
+          ],
+          cycle: [
+            "hornet-normal.png",
+            "hornet-busy.png",
+            "hornet-link.png",
+            "hornet-help.png",
+            "hornet-handwriting.png",
+            "hornet-move.png",
+            "hornet-text.png",
+            "hornet-unavailable.png",
+            "hornet-horizontal.png",
+            "hornet-precision.png",
+          ],
+          gallery: [
+            ["hornet-normal.png", "Normal"],
+            ["hornet-alternate.png", "Alternate"],
+            ["hornet-link.png", "Link"],
+            ["hornet-help.png", "Help"],
+            ["hornet-busy.png", "Busy"],
+            ["hornet-working.png", "Working"],
+            ["hornet-precision.png", "Precision"],
+            ["hornet-text.png", "Text"],
+            ["hornet-handwriting.png", "Handwriting"],
+            ["hornet-unavailable.png", "Unavailable"],
+            ["hornet-move.png", "Move"],
+            ["hornet-horizontal.png", "Horizontal"],
+            ["hornet-vertical.png", "Vertical"],
+            ["hornet-diagonal-1.png", "Diagonal 1"],
+            ["hornet-diagonal-2.png", "Diagonal 2"],
+          ],
+        },
       ];
 
       const grid = document.getElementById("grid");
@@ -909,10 +979,11 @@
         a.innerHTML =
           '<div class="frame"><div class="mat"><img alt="" class="cycler"></div></div>' +
           '<div class="caption"><div><h3 class="ptitle"></h3><p class="pdesc"></p></div><span class="price"></span></div>' +
-          '<div class="meta-row"><span>17 cursors</span><span>Windows</span><span class="view">View</span></div>';
+          '<div class="meta-row"><span class="pcount"></span><span>Windows</span><span class="view">View</span></div>';
         a.querySelector(".ptitle").textContent = p.name;
         a.querySelector(".pdesc").textContent = p.blurb;
         a.querySelector(".price").textContent = p.price;
+        a.querySelector(".pcount").textContent = p.count + " cursors";
         a.querySelector(".mat").style.background = p.tint;
         const img = a.querySelector(".cycler");
         img.src = IMG[p.cycle[0]];
@@ -962,7 +1033,20 @@
         shop.hidden = true;
         product.hidden = false;
         document.title = p.name + " · pinkyussp";
+        document.getElementById("kicker").textContent = p.kicker;
+        document.getElementById("pname").textContent = p.name;
+        document.getElementById("lead").textContent = p.lead;
         document.getElementById("price").textContent = p.price;
+        const buy = document.getElementById("buy");
+        buy.hidden = !p.buy;
+        buy.href = p.buy || "#";
+        document.getElementById("spec-count").textContent =
+          p.count + " cursor files (.cur, .ani)";
+        document.getElementById("spec-artist").textContent = p.artist;
+        document.getElementById("spec-license").textContent = p.license;
+        document.getElementById("steps").innerHTML = p.steps
+          .map((s) => "<li>" + s + "</li>")
+          .join("");
         const gal = document.getElementById("gallery");
         gal.innerHTML = "";
         p.gallery.forEach(([file, label], i) => {
