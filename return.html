@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Checkout cancelled · pinkyussp</title>
+<style>
+  :root {
+    color-scheme: light;
+    --ink: #1c1c1c;
+    --paper: #ffffff;
+    --soft: #f5f6f7;
+    --muted: #6b6f74;
+    --rule: #e6e8eb;
+    --accent: #29abe0;
+    --accent-hover: #1f97c9;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    display: grid;
+    place-items: center;
+    padding: 24px 16px;
+  }
+  .box { max-width: 480px; width: 100%; text-align: center; }
+  .icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--soft);
+    border: 1px solid var(--rule);
+    margin: 0 auto 18px;
+    display: grid;
+    place-items: center;
+    font-size: 26px;
+    color: var(--muted);
+  }
+  h1 { font-size: 1.6rem; margin: 0 0 10px; letter-spacing: -0.01em; }
+  p { color: var(--muted); line-height: 1.6; margin: 0 0 22px; }
+  .btn {
+    display: inline-block;
+    background: var(--accent);
+    color: #ffffff;
+    border-radius: 6px;
+    padding: 12px 24px;
+    font-weight: 700;
+    text-decoration: none;
+  }
+  .btn:hover { background: var(--accent-hover); }
+</style>
+</head>
+<body>
+<main class="box">
+  <div class="icon">←</div>
+  <h1>Checkout cancelled</h1>
+  <p>No problem. You left checkout, so nothing was charged. You can pick the cursor set again whenever you're ready.</p>
+  <a class="btn" href="index.html">Back to shop</a>
+</main>
+</body>
+</html>
