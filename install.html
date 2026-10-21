@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>How to install cursors · pinkyussp</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        color-scheme: light;
+        --yellow: #f8d7e2;
+        --yellow-hover: #f2c3d3;
+        --black: #0d0c22;
+        --ink-2: #5f5f6e;
+        --bg: #fdf6f8;
+        --white: #ffffff;
+        --line: #f1dbe3;
+        --sans: "Lato", "Helvetica Neue", Arial, sans-serif;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background-color: var(--bg);
+        background-image: linear-gradient(
+          to bottom,
+          var(--yellow) 0,
+          var(--yellow) 200px,
+          transparent 200px
+        );
+        background-repeat: no-repeat;
+        color: var(--black);
+        font-family: var(--sans);
+        -webkit-font-smoothing: antialiased;
+        padding: 28px 16px 56px;
+      }
+      main {
+        max-width: 720px;
+        margin: 0 auto;
+      }
+      .back {
+        display: inline-block;
+        background: var(--white);
+        color: var(--black);
+        text-decoration: none;
+        font-weight: 900;
+        padding: 9px 16px;
+        border-radius: 999px;
+        border: 1px solid var(--line);
+        margin-bottom: 24px;
+      }
+      .card {
+        background: var(--white);
+        border-radius: 20px;
+        padding: clamp(24px, 5vw, 40px);
+        box-shadow: 0 2px 10px rgba(13, 12, 34, 0.06);
+      }
+      h1 {
+        font-size: clamp(1.8rem, 5vw, 2.4rem);
+        font-weight: 900;
+        line-height: 1.12;
+        margin: 0 0 10px;
+      }
+      .lead {
+        color: var(--ink-2);
+        line-height: 1.6;
+        margin: 0 0 28px;
+      }
+      .video {
+        aspect-ratio: 16 / 9;
+        background: var(--bg);
+        border: 2px dashed var(--line);
+        border-radius: 14px;
+        display: grid;
+        place-items: center;
+        color: var(--ink-2);
+        font-weight: 700;
+        margin-bottom: 32px;
+        text-align: center;
+        padding: 16px;
+      }
+      h2 {
+        font-size: 1.25rem;
+        font-weight: 900;
+        margin: 0 0 12px;
+      }
+      ol {
+        padding-left: 22px;
+        margin: 0;
+        color: var(--ink-2);
+        line-height: 1.7;
+      }
+      ol strong {
+        color: var(--black);
+      }
+      .note {
+        margin-top: 28px;
+        background: var(--bg);
+        border-radius: 12px;
+        padding: 14px 16px;
+        color: var(--ink-2);
+        line-height: 1.6;
+        font-size: 0.95rem;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <a class="back" href="index.html">← Back to the shop</a>
+      <div class="card">
+        <h1>How to install cursors</h1>
+        <p class="lead">
+          Install a cursor set in a few clicks on Windows. Video guide coming
+          soon.
+        </p>
+
+        <div class="video" aria-label="Video placeholder">
+          Video coming soon
+        </div>
+
+        <h2>Steps</h2>
+        <ol>
+          <li><strong>Unzip</strong> the download.</li>
+          <li>
+            Right-click <strong>install.inf</strong> and choose
+            <strong>Install</strong>.
+          </li>
+          <li>
+            Open <strong>Settings</strong>, search
+            <strong>Mouse cursor</strong>, and pick the scheme (for Bunni, pick
+            <strong>bunni</strong>).
+          </li>
+          <li>Click <strong>Apply</strong>.</li>
+        </ol>
+
+        <p class="note">
+          Hornet only: open <strong>Mouse Properties</strong>, go to the
+          <strong>Pointers</strong> tab, pick the
+          <strong>Hornet</strong> scheme, and click <strong>Apply</strong>.
+        </p>
+      </div>
+    </main>
+  </body>
+</html>

@@ -16,16 +16,16 @@
     <style>
       :root {
         color-scheme: light;
-        --yellow: #f1e8d4;
-        --yellow-hover: #e6d9bb;
+        --yellow: #f8d7e2;
+        --yellow-hover: #f2c3d3;
         --black: #0d0c22;
         --ink: #0d0c22;
         --ink-2: #5f5f6e;
         --ink-3: #8f8f9c;
-        --edge: #d7c9ab;
-        --bg: #fbf8f2;
+        --edge: #e9b8c7;
+        --bg: #fdf6f8;
         --white: #ffffff;
-        --line: #ebe4d6;
+        --line: #f1dbe3;
         --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
         --sans: "Lato", "Helvetica Neue", Arial, sans-serif;
       }
@@ -246,7 +246,7 @@
       .mat {
         position: relative;
         aspect-ratio: 4 / 3;
-        background: #f3f3f1 !important;
+        background: #f9edf1 !important;
         display: grid;
         place-items: center;
         overflow: hidden;
@@ -314,7 +314,7 @@
       .meta-row span:not(.view) {
         padding: 2px 9px;
         border-radius: 999px;
-        background: #f3f3f1;
+        background: #f9edf1;
       }
       .view {
         border: 1px solid var(--edge);
@@ -343,57 +343,65 @@
         margin-top: 64px;
         background: var(--white);
         border-radius: 20px;
-        padding: clamp(24px, 4vw, 36px);
+        padding: clamp(28px, 5vw, 44px) clamp(20px, 4vw, 36px);
         box-shadow: 0 2px 10px rgba(13, 12, 34, 0.06);
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 28px;
-        align-items: center;
-      }
-      @media (max-width: 720px) {
-        .studio {
-          grid-template-columns: 1fr;
-        }
+        text-align: center;
       }
       .studio h2 {
         font-size: 1.5rem;
         font-weight: 900;
-        margin: 0 0 6px;
+        margin: 0 0 8px;
       }
       .studio p {
-        margin: 0;
+        margin: 0 auto 24px;
+        max-width: 420px;
         color: var(--ink-2);
+        line-height: 1.55;
       }
       .studio .links {
-        display: grid;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
         gap: 10px;
       }
       .studio .links a {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 12px;
-        padding: 14px 18px;
+        display: inline-flex;
+        align-items: baseline;
+        gap: 8px;
+        padding: 11px 18px;
         border: 1px solid var(--line);
-        border-radius: 12px;
+        border-radius: 999px;
+        background: var(--bg);
+        color: var(--ink);
         text-decoration: none;
         font-weight: 900;
-        font-size: 1rem;
+        font-size: 0.95rem;
         transition:
           background-color 0.2s,
-          border-color 0.2s;
+          border-color 0.2s,
+          transform 0.2s;
       }
       .studio .links a:hover {
         background: var(--yellow);
         border-color: var(--yellow);
+        transform: translateY(-1px);
+      }
+      .studio .links a.tip {
+        background: var(--black);
+        border-color: var(--black);
+        color: var(--white);
+      }
+      .studio .links a.tip:hover {
+        background: var(--ink-2);
+        border-color: var(--ink-2);
       }
       .studio .links a span {
         font-weight: 700;
         font-size: 0.85rem;
-        color: var(--ink-2);
+        color: var(--ink-3);
       }
-      .studio .links a:hover span {
-        color: var(--black);
+      .studio .links a.tip span {
+        color: #cfcfdc;
       }
 
       .foot {
@@ -689,6 +697,62 @@
         color: var(--ink);
         border-bottom-color: var(--ink);
       }
+      a:focus-visible,
+      button:focus-visible {
+        outline: 3px solid var(--black);
+        outline-offset: 3px;
+        border-radius: 8px;
+      }
+      .about {
+        margin: 48px 0 8px;
+        background: linear-gradient(160deg, #fff 0%, #fdf1f4 100%);
+        border: 1px solid #f6dfe6;
+        border-radius: 20px;
+        padding: clamp(32px, 6vw, 48px) clamp(20px, 4vw, 36px);
+        box-shadow: 0 2px 10px rgba(13, 12, 34, 0.06);
+        text-align: center;
+      }
+      .about h2 {
+        font-size: clamp(1.6rem, 4.2vw, 2.2rem);
+        font-weight: 900;
+        line-height: 1.15;
+        margin: 0 auto;
+        max-width: 560px;
+        padding-bottom: 18px;
+        position: relative;
+      }
+      .about h2::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        width: 56px;
+        height: 4px;
+        border-radius: 999px;
+        background: #f3c6d4;
+        transform: translateX(-50%);
+      }
+      .shop-install {
+        text-align: center;
+        margin: 36px 0 0;
+      }
+      .about-btn {
+        display: inline-block;
+        background: var(--yellow);
+        color: var(--black);
+        padding: 13px 28px;
+        border-radius: 10px;
+        text-decoration: none;
+        font-weight: 900;
+        font-size: 1rem;
+        transition:
+          background-color 0.2s,
+          transform 0.2s;
+      }
+      .about-btn:hover {
+        background: var(--yellow-hover);
+        transform: translateY(-1px);
+      }
     </style>
   </head>
   <body>
@@ -722,27 +786,15 @@
           ></a>
           <a
             class="donate"
-            href="https://buy.polar.sh/polar_cl_KPKiCnQm4KAfPqWdcGHcPgN1EF3Or1W3uQLJB2nxoRD"
+            href="https://www.creem.io/payment/prod_437CuzfOsmXaYMyTqgOLOA"
             >Donate</a
           >
         </nav>
       </header>
 
       <section id="shop">
-        <div class="intro">
-          <div>
-            <p class="label">Digital downloads</p>
-            <h1>Digital goodies,<br /><em>made with love</em></h1>
-          </div>
-          <div>
-            <p class="blurb">
-              Cursor sets and little extras, made to be used every day. Each one
-              is a single download, and yours to keep.
-            </p>
-            <div class="cta">
-              <a class="donate" href="#shop">Browse the shop</a>
-            </div>
-          </div>
+        <div class="about">
+          <h2>Just a silly person making silly stuff on the internet.</h2>
         </div>
 
         <div class="section-top">
@@ -751,13 +803,15 @@
         </div>
         <div class="wall" id="grid"></div>
 
+        <div class="shop-install">
+          <a class="about-btn" href="install.html">How to install cursors</a>
+        </div>
+
         <div class="studio">
-          <div>
-            <h2>Find me elsewhere</h2>
-            <p>
-              Updates, new releases, and the odd sketch. Say hi anywhere below.
-            </p>
-          </div>
+          <h2>Find me elsewhere</h2>
+          <p>
+            Updates, new releases, and the odd sketch. Say hi anywhere below.
+          </p>
           <div class="links">
             <a
               href="https://www.threads.com/@pink.yussp"
@@ -772,7 +826,8 @@
               >Discord <span>Message me</span></a
             >
             <a
-              href="https://buy.polar.sh/polar_cl_KPKiCnQm4KAfPqWdcGHcPgN1EF3Or1W3uQLJB2nxoRD"
+              class="tip"
+              href="https://www.creem.io/payment/prod_437CuzfOsmXaYMyTqgOLOA"
               target="_blank"
               rel="noopener"
               >Leave a tip <span>Donate</span></a
@@ -903,14 +958,14 @@
           name: "Bunni Cursor Set",
           kicker: "Cursor set · No. 01",
           lead: "A white, cute bunni cursor set for Windows. Seventeen cursors cover normal select, busy, text, links, resize, move and more.",
-          buy: "https://buy.polar.sh/polar_cl_ML93JWrPfWwIgXpCfBZo8FMG8SOGdUe7SPOId3xttvU",
+          buy: "https://www.creem.io/payment/prod_4Fb9Ujpmb2xQgu5xX6z637",
           count: 17,
           artist: "pinkyussp",
           license: "Public domain",
           steps: [
             "<strong>Unzip</strong> the download.",
             "Right-click <strong>install.inf</strong> and choose <strong>Install</strong>.",
-            "Open Settings, search <strong>Mouse cursor</strong>, pick <strong>Lana</strong>, and click Apply.",
+            "Open Settings, search <strong>Mouse cursor</strong>, pick <strong>bunni</strong>, and click Apply.",
           ],
           blurb: "White, cute bunni cursors for Windows. Seventeen pieces.",
           price: "$5.99",
@@ -954,7 +1009,7 @@
           blurb: "Hornet's needle as a Windows cursor set. Fifteen pieces.",
           lead: "A Windows cursor set built around Hornet's needle from Hollow Knight: Silksong. Every cursor is redesigned around the weapon while the set stays clean enough for everyday use. Unofficial fan-made set, not affiliated with or endorsed by Team Cherry.",
           price: "$5.99",
-          buy: "https://buy.polar.sh/polar_cl_ML93JWrPfWwIgXpCfBZo8FMG8SOGdUe7SPOId3xttvU",
+          buy: "https://www.creem.io/payment/prod_63Bg4nU1BuFWAigylNYHf4",
           tint: "var(--lilac)",
           count: 15,
           artist: "pinkyussp",
