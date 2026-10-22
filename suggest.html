@@ -251,11 +251,29 @@
         if (!WEBHOOK_URL) return;
         const idea = form.idea.value.trim();
         if (!idea) return;
-        const lines = ["**New cursor suggestion**", idea];
-        if (form.name.value.trim())
-          lines.push("From: " + form.name.value.trim());
-        if (form.link.value.trim())
-          lines.push("Reference: " + form.link.value.trim());
+        const name = form.name.value.trim();
+        const rawLink = form.link.value.trim();
+        const link = /^https?:\/\//i.test(rawLink)
+          ? rawLink.replace(/\(/g, "%28").replace(/\)/g, "%29")
+          : "";
+        const embed = {
+          title: "New cursor suggestion",
+          color: parseInt("F8D7E2", 16),
+          fields: [
+            { name: "Idea", value: idea.slice(0, 1024), inline: false },
+            {
+              name: "Name",
+              value: (name || "Not given").slice(0, 256),
+              inline: true,
+            },
+            {
+              name: "Reference",
+              value: link ? "[Open link](" + link + ")" : "Not given",
+              inline: true,
+            },
+          ],
+          timestamp: new Date().toISOString(),
+        };
         btn.disabled = true;
         status.textContent = "Sending...";
         try {
@@ -263,7 +281,7 @@
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
-              content: lines.join("\n").slice(0, 1900),
+              embeds: [embed],
               allowed_mentions: { parse: [] },
             }),
           });
